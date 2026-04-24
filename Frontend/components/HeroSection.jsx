@@ -1,6 +1,31 @@
+import AutoCarousel from "@/components/AutoCarousel";
+
+const HERO_SLIDES = [
+  {
+    src: "https://hips.hearstapps.com/hmg-prod/images/gh-best-skincare-products-6557978b58b57.png?crop=0.888888888888889xw:1xh;center,top&resize=1200:*",
+    alt: "Skincare products collage",
+  },
+  {
+    src: "https://framerusercontent.com/images/Oa6DU79w7VRN6QwcwPOmc33H4.jpg",
+    alt: "Aesthetic skincare routine flat lay",
+  },
+  {
+    src: "https://thumbs.dreamstime.com/b/aesthetic-skincare-product-mockup-showcasing-frosted-glass-bottles-metallic-details-set-against-neutral-background-focusing-358212829.jpg",
+    alt: "Aesthetic skincare product mockup",
+  },
+  {
+    src: "https://apackaginggroup.com/cdn/shop/articles/aesthetic-cosmetic-jars_9ed124f1-dc13-4947-815e-c6e171624f8a_600x.png?v=1763748812",
+    alt: "Aesthetic cosmetic jars",
+  },
+  {
+    src: "https://img.freepik.com/premium-photo/mockup-packaging-design-cosmetics_1278346-10228.jpg",
+    alt: "Cosmetics packaging mockup",
+  },
+];
+
 export default function HeroSection() {
   return (
-    <section className="section-shell py-12 md:py-16 lg:py-[4.5rem]">
+    <section className="section-shell mt-8 py-12 md:mt-10 md:py-16 lg:mt-12 lg:py-[4.5rem]">
       <div className="grid items-center gap-10 lg:grid-cols-[1fr_1.08fr] lg:gap-14">
         <div className="animate-rise px-1">
           <p className="mb-5 text-xs uppercase tracking-[0.42em] text-accentSecondary/70">Clinical Luxury</p>
@@ -22,12 +47,7 @@ export default function HeroSection() {
         </div>
 
         <div className="animate-soft-zoom relative overflow-hidden rounded-[1.6rem] bg-white shadow-card">
-          <img
-            src="https://images.unsplash.com/photo-1697840507245-e6ce44da4e4c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
-            alt="Glass skincare dropper bottle in soft natural light"
-            className="h-[360px] w-full object-cover object-center sm:h-[500px]"
-          />
-          
+          <AutoCarousel slides={HERO_SLIDES} />
           <div className="pointer-events-none absolute inset-0 bg-gradient-to-tr from-black/5 via-transparent to-white/20" />
         </div>
       </div>
