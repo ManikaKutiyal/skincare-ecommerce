@@ -1,3 +1,7 @@
+"use client";
+import React from 'react';
+import { useCartStore } from '../store/useCartStore';
+
 const navLinks = ["Products", "Collections", "AI Skin Lab"];
 
 function IconStar() {
@@ -37,6 +41,13 @@ function IconCart() {
 }
 
 export default function Navbar() {
+  const { openCart, cartCount } = useCartStore();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    setMounted(true);
+  }, []);
+
   return (
     <header className="relative z-50 overflow-hidden border-b border-white/10 bg-[#12050A] text-white">
       <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_20%_30%,rgba(110,59,71,0.85)_0%,rgba(59,31,43,0.92)_45%,rgba(18,5,10,1)_100%)]" />
@@ -67,11 +78,13 @@ export default function Navbar() {
           <button type="button" className="transition hover:text-white/80" aria-label="Account">
             <IconUser />
           </button>
-          <button type="button" className="relative transition hover:text-white/80" aria-label="Cart">
+          <button type="button" onClick={openCart} className="relative transition hover:opacity-70" aria-label="Cart">
             <IconCart />
-            <span className="absolute -right-2 -top-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[9px] font-semibold leading-none text-[#12050A]">
-              0
-            </span>
+            {mounted && cartCount() > 0 && (
+              <span className="absolute -right-2 -top-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-ink px-1 text-[9px] font-semibold leading-none text-white">
+                {cartCount()}
+              </span>
+            )}
           </button>
           <button
             type="button"

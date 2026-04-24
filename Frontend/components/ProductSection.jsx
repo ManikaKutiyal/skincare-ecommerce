@@ -1,6 +1,18 @@
+"use client";
+import React from 'react';
+import { useCartStore } from '../store/useCartStore';
 import products from "@/lib/products";
 
 function ProductCard({ product }) {
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = () => {
+    addToCart({
+      ...product,
+      size: "Standard" // Default size
+    });
+  };
+
   return (
     <article className="group overflow-hidden rounded-[18px] border border-muted/35 bg-section shadow-soft">
       <div className="bg-section">
@@ -22,6 +34,7 @@ function ProductCard({ product }) {
           <p className="font-serif text-[1.35rem] text-ink">{product.price}</p>
           <button
             type="button"
+            onClick={handleAddToCart}
             className="text-[1.15rem] font-medium text-accentSecondary transition duration-300 hover:text-accentPrimary"
           >
             Add to Cart

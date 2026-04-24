@@ -1,3 +1,7 @@
+"use client";
+import React from 'react';
+import { useCartStore } from '../store/useCartStore';
+
 const bestSellers = [
   {
     name: "Niacinamide 10% Face Serum",
@@ -58,6 +62,16 @@ const bestSellers = [
 ];
 
 function BestSellerCard({ item }) {
+  const [selectedSize, setSelectedSize] = React.useState(item.sizes[0]);
+  const { addToCart } = useCartStore();
+
+  const handleAddToCart = () => {
+    addToCart({
+      ...item,
+      size: selectedSize
+    });
+  };
+
   return (
     <article className="w-[270px] shrink-0 overflow-hidden rounded-2xl bg-white shadow-soft sm:w-[285px] lg:w-[300px]">
       <img src={item.image} alt={item.name} className="h-72 w-full object-cover" />
@@ -66,17 +80,22 @@ function BestSellerCard({ item }) {
         <p className="mt-1 text-base text-accentSecondary/85">{item.concerns}</p>
         <div className="mt-4 flex items-center justify-between">
           <p className="text-lg font-semibold text-ink">From {item.price}</p>
-          <select className="rounded-lg border border-black/10 bg-base px-2 py-1.5 text-sm text-accentSecondary outline-none">
+          <select
+            value={selectedSize}
+            onChange={(e) => setSelectedSize(e.target.value)}
+            className="rounded-lg border border-black/10 bg-base px-2 py-1.5 text-sm text-accentSecondary outline-none"
+          >
             {item.sizes.map((size) => (
-              <option key={size}>{size}</option>
+              <option key={size} value={size}>{size}</option>
             ))}
           </select>
         </div>
         <button
           type="button"
-          className="mt-4 w-full rounded-lg bg-ink px-3 py-2.5 text-base font-medium text-[#F7F7F5]"
+          onClick={handleAddToCart}
+          className="mt-4 w-full rounded-lg bg-ink px-3 py-2.5 text-base font-medium text-[#F7F7F5] transition hover:opacity-90"
         >
-          Select Size
+          Add to Cart
         </button>
       </div>
     </article>
