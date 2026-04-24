@@ -38,9 +38,10 @@ function IconCart() {
 
 export default function Navbar() {
   return (
-    <header className="z-50 border-b border-black/10 bg-white">
-      <div className="section-shell flex items-center justify-between py-4">
-        <a href="#" className="text-[2rem] font-extrabold leading-none tracking-tight text-ink">
+    <header className="relative z-50 overflow-hidden border-b border-white/10 bg-[#12050A] text-white">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_20%_30%,rgba(110,59,71,0.85)_0%,rgba(59,31,43,0.92)_45%,rgba(18,5,10,1)_100%)]" />
+      <div className="section-shell relative z-10 flex items-center justify-between py-4">
+        <a href="#" className="text-[2rem] font-extrabold leading-none tracking-tight text-white">
           Skincare Luxury
         </a>
 
@@ -49,32 +50,32 @@ export default function Navbar() {
             <a
               key={link}
               href="#"
-              className="text-[0.98rem] font-medium text-ink/95 transition duration-300 hover:opacity-70"
+              className="text-[0.98rem] font-medium text-white/90 transition duration-300 hover:text-white"
             >
               {link}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 text-ink">
-          <button type="button" className="hidden transition hover:opacity-70 md:inline-flex" aria-label="Wishlist">
+        <div className="flex items-center gap-3 text-white">
+          <button type="button" className="hidden transition hover:text-white/80 md:inline-flex" aria-label="Wishlist">
             <IconStar />
           </button>
-          <button type="button" className="transition hover:opacity-70" aria-label="Search">
+          <button type="button" className="transition hover:text-white/80" aria-label="Search">
             <IconSearch />
           </button>
-          <button type="button" className="transition hover:opacity-70" aria-label="Account">
+          <button type="button" className="transition hover:text-white/80" aria-label="Account">
             <IconUser />
           </button>
-          <button type="button" className="relative transition hover:opacity-70" aria-label="Cart">
+          <button type="button" className="relative transition hover:text-white/80" aria-label="Cart">
             <IconCart />
-            <span className="absolute -right-2 -top-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-ink px-1 text-[9px] font-semibold leading-none text-white">
+            <span className="absolute -right-2 -top-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-white px-1 text-[9px] font-semibold leading-none text-[#12050A]">
               0
             </span>
           </button>
           <button
             type="button"
-            className="text-2xl leading-none transition hover:opacity-70 lg:hidden"
+            className="text-2xl leading-none transition hover:text-white/80 lg:hidden"
             aria-label="Open menu"
           >
             ☰
