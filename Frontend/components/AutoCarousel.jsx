@@ -39,7 +39,7 @@ export default function AutoCarousel({
         style={{ transform: `translateX(-${activeIndex * 100}%)` }}
       >
         {normalizedSlides.map((slide) => (
-          <div key={slide.src} className="h-full w-full shrink-0 bg-[#F7F7F5]">
+          <div key={slide.src} className="h-full w-full shrink-0 bg-offWhite">
             <img
               src={slide.src}
               alt={slide.alt}

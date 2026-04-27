@@ -40,7 +40,7 @@ export default function HeroSection() {
           </p>
           <button
             type="button"
-            className="mt-10 rounded-full bg-ink px-10 py-4 text-base font-semibold text-[#F7F7F5] shadow-soft transition duration-300 hover:scale-105 hover:shadow-card"
+            className="mt-10 rounded-full bg-primary px-10 py-4 text-base font-semibold text-offWhite shadow-soft transition duration-300 hover:shadow-[0_0_0_1px_rgba(201,168,76,0.35),0_0_42px_rgba(108,63,197,0.14)]"
           >
             Shop Now
           </button>

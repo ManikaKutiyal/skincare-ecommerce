@@ -2,14 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap");
+
 :root {
-  --bg: #f7f7f5;
-  --section: #edeae6;
-  --accent-primary: #3b1f2b;
-  --accent-secondary: #6e3b47;
-  --highlight: #a8b5a2;
-  --muted: #b8afa6;
-  --ink: #111111;
+  --font-sans: "DM Sans";
+  --font-serif: "Cormorant Garamond";
+  --bg: #f9f8ff;
+  --section: #f1eefa;
+  --accent-primary: #1a1a3e;
+  --accent-secondary: #c9a84c;
+  --highlight: #6c3fc5;
+  --muted: #cfc7e2;
+  --ink: #101024;
 }
 
 * {
@@ -20,7 +24,10 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background: var(--bg);
+  background:
+    radial-gradient(80% 80% at 15% 8%, rgba(108, 63, 197, 0.12) 0%, rgba(108, 63, 197, 0) 56%),
+    radial-gradient(65% 65% at 88% 10%, rgba(201, 168, 76, 0.2) 0%, rgba(201, 168, 76, 0) 62%),
+    var(--bg);
   color: var(--ink);
   font-family: var(--font-sans), sans-serif;
   scroll-behavior: smooth;
@@ -105,4 +112,9 @@ img {
 
 .no-scrollbar::-webkit-scrollbar {
   display: none;
+}
+
+.cinematic-surface {
+  background:
+    linear-gradient(135deg, rgba(26, 26, 62, 0.97) 0%, rgba(49, 30, 110, 0.95) 52%, rgba(26, 26, 62, 0.99) 100%);
 }

@@ -42,8 +42,8 @@ export default function TextureShowcase() {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/45 to-black/8" />
               <div className="absolute inset-x-0 bottom-0 p-8">
-                <h3 className="text-[2.18rem] leading-[1.08] text-[#F7F7F5]">{texture.title}</h3>
-                <p className="mt-3 max-w-[18ch] text-[1.05rem] leading-[1.55] text-[#F7F7F5]">{texture.text}</p>
+                <h3 className="text-[2.18rem] leading-[1.08] text-offWhite">{texture.title}</h3>
+                <p className="mt-3 max-w-[18ch] text-[1.05rem] leading-[1.55] text-offWhite/90">{texture.text}</p>
               </div>
             </article>
           ))}

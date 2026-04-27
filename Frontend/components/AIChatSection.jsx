@@ -11,14 +11,14 @@ export default function AIChatSection() {
     <section className="section-shell py-20 md:py-24">
       <div className="mx-auto max-w-[1024px] overflow-hidden rounded-[24px] border border-muted/30 bg-section shadow-soft">
         <div className="grid md:grid-cols-2">
-          <div className="border-b border-muted/25 bg-gradient-to-br from-accentPrimary via-accentSecondary to-accentPrimary px-9 py-12 text-[#F7F7F5] md:border-b-0 md:border-r md:border-r-muted/25 md:px-11 md:py-14">
+          <div className="border-b border-muted/25 bg-gradient-to-br from-accentPrimary via-highlight/65 to-accentPrimary px-9 py-12 text-offWhite md:border-b-0 md:border-r md:border-r-muted/25 md:px-11 md:py-14">
             <p className="text-[11px] uppercase tracking-[0.24em] text-highlight">AI Routine</p>
-            <h2 className="mt-4 text-[2.35rem] leading-[1.08] text-[#F7F7F5]">
+            <h2 className="mt-4 text-[2.35rem] leading-[1.08] text-offWhite">
               Your Personalized
               <br />
               Skincare Ritual
             </h2>
-            <p className="mt-5 text-[1.02rem] leading-[1.85] text-[#F7F7F5]/88">
+            <p className="mt-5 text-[1.02rem] leading-[1.85] text-offWhite/88">
               Our AI analyzes your unique skin profile to recommend the perfect clinical formulations tailored to your
               needs.
             </p>
@@ -29,7 +29,7 @@ export default function AIChatSection() {
                 <button
                   key={concern}
                   type="button"
-                  className="rounded-full border border-[#F7F7F5]/28 bg-[#F7F7F5]/10 px-4 py-2.5 text-[12px] font-medium tracking-[0.01em] text-[#F7F7F5] transition duration-300 ease-out hover:bg-[#F7F7F5]/20"
+                  className="rounded-full border border-offWhite/28 bg-offWhite/10 px-4 py-2.5 text-[12px] font-medium tracking-[0.01em] text-offWhite transition duration-300 ease-out hover:bg-offWhite/20"
                 >
                   {concern}
                 </button>
@@ -49,7 +49,7 @@ export default function AIChatSection() {
 
             <button
               type="button"
-              className="mt-8 w-full rounded-full bg-ink px-7 py-4 text-base font-semibold text-[#F7F7F5] shadow-soft transition duration-300 ease-out hover:opacity-90"
+              className="mt-8 w-full rounded-full bg-primary px-7 py-4 text-base font-semibold text-offWhite shadow-soft transition duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(201,168,76,0.35),0_0_36px_rgba(108,63,197,0.12)]"
             >
               Get Your Routine
             </button>
