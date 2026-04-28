@@ -6,56 +6,56 @@ const bestSellers = [
   {
     name: "Niacinamide 10% Face Serum",
     concerns: "Acne Marks, Oily Skin",
-    price: "$24",
+    price: "₹24",
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80",
     sizes: ["30ml", "60ml"]
   },
   {
     name: "Vitamin C 10% Serum",
     concerns: "Dullness, Spots",
-    price: "$29",
+    price: "₹29",
     image: "https://images.unsplash.com/photo-1611930022073-b7a4ba5fcccd?auto=format&fit=crop&w=900&q=80",
     sizes: ["30ml", "50ml"]
   },
   {
     name: "Salicylic Acid 2% Serum",
     concerns: "Acne, Blackheads",
-    price: "$22",
+    price: "₹22",
     image: "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=900&q=80",
     sizes: ["30ml", "60ml"]
   },
   {
     name: "SPF 50 Fluid Sunscreen",
     concerns: "UV Protection, Pigmentation",
-    price: "$19",
+    price: "₹19",
     image: "https://images.unsplash.com/photo-1556228578-8c89e6adf883?auto=format&fit=crop&w=900&q=80",
     sizes: ["40ml", "80ml"]
   },
   {
     name: "Barrier Repair Moisturizer",
     concerns: "Dryness, Sensitivity",
-    price: "$31",
+    price: "₹31",
     image: "https://images.unsplash.com/photo-1620916566398-39f1143ab7be?auto=format&fit=crop&w=900&q=80",
     sizes: ["50ml", "100ml"]
   },
   {
     name: "Retinol Night Elixir",
     concerns: "Fine Lines, Texture",
-    price: "$36",
+    price: "₹36",
     image: "https://images.unsplash.com/photo-1556229010-aa3f7ff66b24?auto=format&fit=crop&w=900&q=80",
     sizes: ["30ml", "45ml"]
   },
   {
     name: "Ceramide Recovery Cream",
     concerns: "Barrier Support, Dryness",
-    price: "$34",
+    price: "₹34",
     image: "https://images.unsplash.com/photo-1625772452859-1c03d5bf1137?auto=format&fit=crop&w=900&q=80",
     sizes: ["50ml", "75ml"]
   },
   {
     name: "Daily Gel Cleanser",
     concerns: "Oil Balance, Pores",
-    price: "$26",
+    price: "₹26",
     image: "https://images.unsplash.com/photo-1571781926291-c477ebfd024b?auto=format&fit=crop&w=900&q=80",
     sizes: ["100ml", "150ml"]
   }
@@ -73,10 +73,10 @@ function BestSellerCard({ item }) {
   };
 
   return (
-    <article className="w-[270px] shrink-0 overflow-hidden rounded-2xl bg-white shadow-soft sm:w-[285px] lg:w-[300px]">
-      <img src={item.image} alt={item.name} className="h-72 w-full object-cover" />
+    <article className="w-[250px] shrink-0 overflow-hidden rounded-2xl bg-white shadow-soft sm:w-[265px] lg:w-[280px]">
+      <img src={item.image} alt={item.name} className="h-64 w-full object-cover" />
       <div className="p-5">
-        <h3 className="text-[1.55rem] leading-8 text-ink">{item.name}</h3>
+        <h3 className="text-[1.35rem] leading-7 text-ink">{item.name}</h3>
         <p className="mt-1 text-base text-accentSecondary/85">{item.concerns}</p>
         <div className="mt-4 flex items-center justify-between">
           <p className="text-lg font-semibold text-ink">From {item.price}</p>

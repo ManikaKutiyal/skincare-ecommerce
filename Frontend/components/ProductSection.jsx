@@ -1,43 +1,47 @@
 "use client";
-import React from 'react';
-import { useCartStore } from '../store/useCartStore';
+
+import { useState } from 'react';
+import Link from 'next/link';
 import products from "@/lib/products";
+import ProductDetailModal from './ProductDetailModal';
+import { useCart } from '@/context/CartContext';
 
-function ProductCard({ product }) {
-  const { addToCart } = useCartStore();
+function ProductCard({ product, onViewDetails }) {
+  const { addToCart } = useCart();
+  const [isAdding, setIsAdding] = useState(false);
 
-  const handleAddToCart = () => {
-    addToCart({
-      ...product,
-      size: "Standard" // Default size
-    });
+  const handleAddToCart = (e) => {
+    e.stopPropagation();
+    setIsAdding(true);
+    addToCart(product);
+    setTimeout(() => setIsAdding(false), 1500);
   };
 
   return (
-    <article className="group overflow-hidden rounded-[18px] border border-muted/35 bg-section shadow-soft">
-      <div className="bg-section">
-        <img
-          src={product.image}
-          alt={product.name}
-          className="h-[394px] w-full object-cover transition duration-300 ease-out group-hover:scale-[1.02]"
-        />
-      </div>
+    <article 
+      className="group mx-auto w-full max-w-[280px] overflow-hidden rounded-2xl border border-muted/35 bg-section shadow-soft cursor-pointer transition hover:shadow-lg"
+      onClick={() => onViewDetails(product)}
+    >
+      <img
+        src={product.image}
+        alt={product.name}
+        className="h-64 w-full object-cover"
+      />
 
-      <div className="px-6 pb-6 pt-5">
-        <h4 className="text-[1.9rem] leading-[1.08] text-ink">{product.name}</h4>
-        <div className="mt-3 text-sm leading-5">
-          <p className="text-[0.9rem] uppercase tracking-[0.1em] text-accentSecondary">{product.ingredient}</p>
-          <p className="mt-1.5 text-[0.9rem] text-muted">{product.benefit}</p>
-        </div>
+      <div className="p-4">
+        <h4 className="text-lg">{product.name}</h4>
+        <p className="text-sm text-gray-500">{product.benefit}</p>
 
-        <div className="mt-5 flex items-center justify-between border-t border-muted/55 pt-4">
-          <p className="font-serif text-[1.35rem] text-ink">{product.price}</p>
+        <div className="mt-3 flex justify-between items-center">
+          <p>{product.priceDisplay}</p>
+
           <button
-            type="button"
             onClick={handleAddToCart}
-            className="text-[1.15rem] font-medium text-accentSecondary transition duration-300 hover:text-accentPrimary"
+            className={`text-sm ${
+              isAdding ? 'text-green-500' : 'text-blue-500'
+            }`}
           >
-            Add to Cart
+            {isAdding ? '✓ Added' : 'Add to Cart'}
           </button>
         </div>
       </div>
@@ -46,22 +50,33 @@ function ProductCard({ product }) {
 }
 
 export default function ProductSection() {
-  return (
-    <section className="section-shell py-20 md:py-24 lg:py-28">
-      <div className="mx-auto max-w-[1280px]">
-        <div className="text-center">
-          <h2 className="text-5xl leading-[1.08] text-ink sm:text-6xl md:text-[3.4rem]">Our Clinical Collection</h2>
-          <p className="mx-auto mt-5 max-w-3xl text-lg text-accentSecondary">
-            Each product is formulated with precision-targeted actives for measurable results
-          </p>
-        </div>
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-        <div className="mt-14 grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
-          {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
+  const handleViewDetails = (product) => {
+    setSelectedProduct(product);
+    setIsModalOpen(true);
+  };
+
+  return (
+    <section>
+      <div className="grid grid-cols-2 gap-4">
+        {products.slice(0, 4).map((product) => (
+          <ProductCard 
+            key={product.id} 
+            product={product}
+            onViewDetails={handleViewDetails}
+          />
+        ))}
       </div>
+
+      <Link href="/products">View All Products</Link>
+
+      <ProductDetailModal 
+        product={selectedProduct}
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </section>
   );
 }
