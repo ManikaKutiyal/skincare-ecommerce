@@ -1,7 +1,7 @@
 const announcements = [
   "Enjoy free shipping on every order!",
   "Build Your Own Bundle - Save up to 15%",
-  "Free sunscreen on orders above $65",
+  "Free sunscreen on orders above ₹65",
   "Join Trust Circle rewards for exclusive benefits"
 ];
 

@@ -1,5 +1,4 @@
 import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
 
 const createCartState = (set, get) => ({
     items: [],
@@ -56,10 +55,4 @@ const createCartState = (set, get) => ({
     }
 });
 
-export const useCartStore = create(
-    typeof window === 'undefined'
-        ? createCartState
-        : persist(createCartState, {
-            name: 'cart-storage',
-        })
-);
+export const useCartStore = create(createCartState);
