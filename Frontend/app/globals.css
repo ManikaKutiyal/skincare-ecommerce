@@ -18,6 +18,7 @@
 
 * {
   box-sizing: border-box;
+  cursor: none !important;
 }
 
 html,
@@ -117,4 +118,21 @@ img {
 .cinematic-surface {
   background:
     linear-gradient(135deg, rgba(26, 26, 62, 0.97) 0%, rgba(49, 30, 110, 0.95) 52%, rgba(26, 26, 62, 0.99) 100%);
+}
+
+/* Lenis Smooth Scroll Fixes */
+html.lenis {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
 }

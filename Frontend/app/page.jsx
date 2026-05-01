@@ -3,6 +3,9 @@
 import Navbar from "@/components/Navbar";
 import FeaturedProductsCamliqa from "@/components/FeaturedProductsCamliqa";
 import Footer from "@/components/Footer";
+import Reveal, { ImageReveal } from "@/components/Reveal";
+import AISkinLab from "@/components/AISkinLab";
+import HorizontalStory from "@/components/HorizontalStory";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -220,22 +223,28 @@ export default function HomePage() {
         </div>
       </section>
 
-      <motion.section
-        id="collections"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.75, ease: "easeOut" }}
-        variants={reveal}
-        className="relative overflow-hidden py-12 sm:py-14 lg:py-18"
-      >
+      <section id="collections" className="relative overflow-hidden py-24 sm:py-32">
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1100px_circle_at_25%_10%,rgba(201,168,76,0.08)_0%,rgba(201,168,76,0)_62%),radial-gradient(1200px_circle_at_80%_20%,rgba(108,63,197,0.06)_0%,rgba(108,63,197,0)_62%)]" />
-        <div className="section-shell relative z-10">
-          <div className="text-center">
-            <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-secondary sm:text-xs">
-              Featured Collections
-            </p>
-            <h2 className="mt-3 font-serif text-3xl text-primary sm:text-4xl">Built for Every Ritual</h2>
+        <div className="section-shell">
+          <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
+            <div className="max-w-2xl">
+              <Reveal>
+                <h2 className="font-serif text-[2.4rem] leading-[1.1] text-primary sm:text-[3.2rem]">
+                  Curated Rituals for <br />
+                  <span className="italic text-secondary">Every Concern</span>
+                </h2>
+              </Reveal>
+              <Reveal delay={0.4}>
+                <p className="mt-6 text-[1.05rem] text-primary/70 sm:text-[1.1rem]">
+                  Discover our scientifically-backed collections, each designed to harmonize with your skin&apos;s natural rhythm and unique biological needs.
+                </p>
+              </Reveal>
+            </div>
+            <Reveal direction="left" delay={0.6}>
+              <button className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary transition hover:text-secondary">
+                Explore All Products →
+              </button>
+            </Reveal>
           </div>
 
           <div className="mt-12 grid gap-6 md:auto-rows-[200px] md:grid-cols-12">
@@ -245,136 +254,143 @@ export default function HomePage() {
               const isTargeted = index === 2;
 
               return (
-                <motion.article
+                <div
                   key={collection.name}
-                  initial={{ opacity: 0, y: 18 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.35 }}
-                  transition={{ duration: 0.6, delay: index * 0.1, ease: "easeOut" }}
-                  className={`group relative overflow-hidden rounded-2xl border border-secondary/35 shadow-soft transition hover:-translate-y-1 hover:shadow-[0_26px_70px_-42px_rgba(26,26,62,0.55),0_0_46px_rgba(108,63,197,0.14)] ${
+                  className={`${
                     isMorning
                       ? "md:col-span-7 md:row-span-2"
                       : isNight
                         ? "md:col-span-5 md:row-span-1"
                         : "md:col-span-5 md:row-span-1"
-                  } ${isNight ? "bg-primary text-white" : "bg-white/70 backdrop-blur-md"}`}
+                  }`}
                 >
-                  <div
-                    className={`pointer-events-none absolute inset-0 ${
-                      isNight
-                        ? "bg-[radial-gradient(900px_circle_at_12%_12%,rgba(108,63,197,0.24)_0%,rgba(108,63,197,0)_62%),radial-gradient(900px_circle_at_90%_40%,rgba(201,168,76,0.16)_0%,rgba(201,168,76,0)_56%)]"
-                        : "bg-[linear-gradient(135deg,rgba(26,26,62,0.06)_0%,rgba(26,26,62,0)_48%,rgba(108,63,197,0.06)_100%)]"
-                    }`}
-                  />
+                  <Reveal delay={index * 0.2} width="100%" height="100%">
+                    <article
+                      className={`group relative h-full overflow-hidden rounded-2xl border border-secondary/35 shadow-soft transition hover:-translate-y-1 hover:shadow-[0_26px_70px_-42px_rgba(26,26,62,0.55),0_0_46px_rgba(108,63,197,0.14)] ${isNight ? "bg-primary text-white" : "bg-white/70 backdrop-blur-md"}`}
+                    >
+                      <div
+                        className={`pointer-events-none absolute inset-0 ${
+                          isNight
+                            ? "bg-[radial-gradient(900px_circle_at_12%_12%,rgba(108,63,197,0.24)_0%,rgba(108,63,197,0)_62%),radial-gradient(900px_circle_at_90%_40%,rgba(201,168,76,0.16)_0%,rgba(201,168,76,0)_56%)]"
+                            : "bg-[linear-gradient(135deg,rgba(26,26,62,0.06)_0%,rgba(26,26,62,0)_48%,rgba(108,63,197,0.06)_100%)]"
+                        }`}
+                      />
 
-                  <div className="relative flex h-full items-stretch justify-between gap-6 p-7 sm:p-8">
-                    <div className="max-w-[22rem]">
-                      <p className={`text-[10px] font-semibold uppercase tracking-[0.34em] ${isNight ? "text-secondary/90" : "text-secondary"}`}>
-                        Featured Collection {index + 1}
-                      </p>
-                      <h3 className={`mt-4 font-serif text-[1.65rem] leading-tight ${isNight ? "text-white" : "text-primary"}`}>
-                        {collection.name}
-                      </h3>
-                      <p className={`mt-3 text-sm leading-relaxed ${isNight ? "text-white/75" : "text-primary/70"}`}>
-                        {collection.description}
-                      </p>
-                    </div>
-
-                    <div className={`${isMorning ? "w-[55%]" : isTargeted ? "w-[48%]" : "w-[44%]"} relative`}>
-                      <div className={`relative h-full w-full overflow-hidden rounded-2xl ${isNight ? "border border-secondary/25 bg-white/5" : "border border-secondary/30 bg-white/80"}`}>
-                        <Image
-                          src={collection.imageSrc}
-                          alt={collection.imageAlt}
-                          fill
-                          sizes={isMorning ? "(min-width: 768px) 620px, 92vw" : "(min-width: 768px) 420px, 92vw"}
-                          className={`object-cover object-center transition duration-700 ease-out group-hover:scale-[1.03] ${isNight ? "opacity-90" : "opacity-95"}`}
-                          priority={isMorning}
-                        />
-                        <div className={`pointer-events-none absolute inset-0 ${isNight ? "bg-gradient-to-l from-primary/5 via-primary/15 to-primary/55" : "bg-gradient-to-l from-white/0 via-white/5 to-white/35"}`} />
-                      </div>
-
-                      {isMorning ? (
-                        <div className="absolute right-3 top-3 hidden w-20 sm:block">
-                          <div className="aspect-square overflow-hidden rounded-xl border border-secondary/35 bg-white/85 shadow-soft">
-                            <Image
-                              src={collection.thumbSrc}
-                              alt={`${collection.name} thumbnail`}
-                              width={160}
-                              height={160}
-                              className="h-full w-full object-cover object-center"
-                            />
-                          </div>
+                      <div className="relative flex h-full items-stretch justify-between gap-6 p-7 sm:p-8">
+                        <div className="max-w-[22rem]">
+                          <p className={`text-[10px] font-semibold uppercase tracking-[0.34em] ${isNight ? "text-secondary/90" : "text-secondary"}`}>
+                            Featured Collection {index + 1}
+                          </p>
+                          <h3 className={`mt-4 font-serif text-[1.65rem] leading-tight ${isNight ? "text-white" : "text-primary"}`}>
+                            {collection.name}
+                          </h3>
+                          <p className={`mt-3 text-sm leading-relaxed ${isNight ? "text-white/75" : "text-primary/70"}`}>
+                            {collection.description}
+                          </p>
                         </div>
-                      ) : null}
-                    </div>
-                  </div>
-                </motion.article>
+
+                        <div className={`${isMorning ? "w-[55%]" : isTargeted ? "w-[48%]" : "w-[44%]"} relative`}>
+                          <div className={`relative h-full w-full overflow-hidden rounded-2xl ${isNight ? "border border-secondary/25 bg-white/5" : "border border-secondary/30 bg-white/80"}`}>
+                            <ImageReveal delay={index * 0.3}>
+                              <Image
+                                src={collection.imageSrc}
+                                alt={collection.imageAlt}
+                                fill
+                                sizes={isMorning ? "(min-width: 768px) 620px, 92vw" : "(min-width: 768px) 420px, 92vw"}
+                                className={`object-cover object-center transition duration-700 ease-out group-hover:scale-[1.03] ${isNight ? "opacity-90" : "opacity-95"}`}
+                                priority={isMorning}
+                              />
+                            </ImageReveal>
+                            <div className={`pointer-events-none absolute inset-0 ${isNight ? "bg-gradient-to-l from-primary/5 via-primary/15 to-primary/55" : "bg-gradient-to-l from-white/0 via-white/5 to-white/35"}`} />
+                          </div>
+
+                          {isMorning ? (
+                            <div className="absolute right-3 top-3 hidden w-20 sm:block">
+                              <div className="aspect-square overflow-hidden rounded-xl border border-secondary/35 bg-white/85 shadow-soft">
+                                <Image
+                                  src={collection.thumbSrc}
+                                  alt={`${collection.name} thumbnail`}
+                                  width={160}
+                                  height={160}
+                                  className="h-full w-full object-cover object-center"
+                                />
+                              </div>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                    </article>
+                  </Reveal>
+                </div>
               );
             })}
           </div>
         </div>
-      </motion.section>
+      </section>
 
-      <motion.section
+      <AISkinLab />
+
+      <HorizontalStory />
+
+      <section
         id="ingredients"
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.25 }}
-        transition={{ duration: 0.75, ease: "easeOut" }}
-        variants={reveal}
         className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
       >
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_circle_at_22%_18%,rgba(201,168,76,0.10)_0%,rgba(201,168,76,0)_62%),radial-gradient(1200px_circle_at_78%_24%,rgba(108,63,197,0.08)_0%,rgba(108,63,197,0)_62%),linear-gradient(120deg,rgba(26,26,62,0.04)_0%,rgba(26,26,62,0)_42%,rgba(26,26,62,0.05)_100%)]" />
         <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1100px_circle_at_20%_60%,rgba(26,26,62,0.04)_0%,rgba(26,26,62,0)_58%)]" />
 
         <div className="section-shell relative z-10">
-          <div className="mb-6 flex items-center justify-between">
-            <h2 className="font-serif text-2xl text-primary/80 sm:text-3xl">Ingredients</h2>
-            <span className="hidden h-px flex-1 bg-secondary/20 sm:mx-8 sm:block" />
-          </div>
+          <Reveal delay={0.2} width="100%">
+            <div className="mb-6 flex items-center justify-between">
+              <h2 className="font-serif text-2xl text-primary/80 sm:text-3xl">Ingredients</h2>
+              <span className="hidden h-px flex-1 bg-secondary/20 sm:mx-8 sm:block" />
+            </div>
+          </Reveal>
 
-          <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-secondary/30 bg-white/55 shadow-soft backdrop-blur-md">
-            <div className="p-7 sm:p-9 lg:p-10">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.36em] text-secondary/90">
-                Clinically proven. Naturally potent.
-              </p>
-              <h3 className="mt-3 font-serif text-3xl leading-tight text-primary sm:text-4xl">
-                Naturally Potent. Clinically Smart.
-              </h3>
+          <Reveal delay={0.4} width="100%">
+            <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-secondary/30 bg-white/55 shadow-soft backdrop-blur-md">
+              <div className="p-7 sm:p-9 lg:p-10">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.36em] text-secondary/90">
+                  Clinically proven. Naturally potent.
+                </p>
+                <h3 className="mt-3 font-serif text-3xl leading-tight text-primary sm:text-4xl">
+                  Naturally Potent. Clinically Smart.
+                </h3>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                {ingredients.map((item, index) => (
-                  <motion.article
-                    key={item.name}
-                    initial={{ opacity: 0, y: 16 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true, amount: 0.5 }}
-                    transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-                    className="group flex items-center justify-between gap-6 rounded-2xl border border-secondary/45 bg-white/40 px-6 py-4 shadow-[0_18px_44px_-40px_rgba(26,26,62,0.55)] backdrop-blur-md transition hover:border-highlight/55 hover:bg-white/55"
-                  >
-                    <div>
-                      <p className="font-serif text-lg text-primary">{item.name}</p>
-                      <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
-                    </div>
-                    <div className="relative">
-                      <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-highlight/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
-                      <IngredientIcon kind={item.icon} />
-                    </div>
-                  </motion.article>
-                ))}
+                <div className="mt-8 grid gap-4 sm:grid-cols-2">
+                  {ingredients.map((item, index) => (
+                    <motion.article
+                      key={item.name}
+                      initial={{ opacity: 0, y: 16 }}
+                      whileInView={{ opacity: 1, y: 0 }}
+                      viewport={{ once: true, amount: 0.5 }}
+                      transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
+                      className="group flex items-center justify-between gap-6 rounded-2xl border border-secondary/45 bg-white/40 px-6 py-4 shadow-[0_18px_44px_-40px_rgba(26,26,62,0.55)] backdrop-blur-md transition hover:border-highlight/55 hover:bg-white/55"
+                    >
+                      <div>
+                        <p className="font-serif text-lg text-primary">{item.name}</p>
+                        <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
+                      </div>
+                      <div className="relative">
+                        <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-highlight/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
+                        <IngredientIcon kind={item.icon} />
+                      </div>
+                    </motion.article>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex items-center justify-center px-7 pb-7 sm:px-9 sm:pb-9">
+                <div className="flex w-full max-w-md items-center gap-4 text-secondary/80">
+                  <span className="h-px flex-1 bg-secondary/25" />
+                  <span className="h-2 w-2 rotate-45 border border-secondary/40" />
+                  <span className="h-px flex-1 bg-secondary/25" />
+                </div>
               </div>
             </div>
-
-            <div className="flex items-center justify-center px-7 pb-7 sm:px-9 sm:pb-9">
-              <div className="flex w-full max-w-md items-center gap-4 text-secondary/80">
-                <span className="h-px flex-1 bg-secondary/25" />
-                <span className="h-2 w-2 rotate-45 border border-secondary/40" />
-                <span className="h-px flex-1 bg-secondary/25" />
-              </div>
-            </div>
-          </div>
+          </Reveal>
         </div>
-      </motion.section>
+      </section>
 
       <motion.section
         id="social-proof"
@@ -506,14 +522,7 @@ export default function HomePage() {
 
       <FeaturedProductsCamliqa />
 
-      <motion.section
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true, amount: 0.3 }}
-        transition={{ duration: 0.75, ease: "easeOut" }}
-        variants={reveal}
-        className="section-shell pb-16 pt-10 sm:pb-20"
-      >
+      <section className="section-shell pb-16 pt-10 sm:pb-20">
         <div className="mx-auto max-w-5xl rounded-2xl border border-secondary/40 bg-white px-6 py-10 text-center shadow-soft sm:px-12 lg:px-20 lg:py-14">
           <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-secondary">Our Mission</p>
           <p className="mt-6 font-serif text-[2rem] leading-tight text-primary sm:text-[2.35rem] sm:leading-tight lg:text-[2.65rem]">
@@ -521,7 +530,7 @@ export default function HomePage() {
             visible results while staying true to natural, high-quality ingredients.
           </p>
         </div>
-      </motion.section>
+      </section>
 
       <Footer />
     </main>
