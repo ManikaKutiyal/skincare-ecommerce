@@ -1,16 +1,17 @@
 {
   "compilerOptions": {
-    "ignoreDeprecations": "6.0",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "jsx": "preserve"
   },
   "include": [
     "app/**/*",
     "components/**/*",
     "lib/**/*",
     "*.js",
+    "*.jsx",
     "*.mjs"
   ],
   "exclude": ["node_modules", ".next"]

@@ -5,6 +5,8 @@ import FeaturedProductsCamliqa from "@/components/FeaturedProductsCamliqa";
 import Footer from "@/components/Footer";
 import Reveal, { ImageReveal } from "@/components/Reveal";
 import AISkinLab from "@/components/AISkinLab";
+import AnatomyOfPurity from "@/components/AnatomyOfPurity";
+import VideoSection from "@/components/VideoSection";
 import HorizontalStory from "@/components/HorizontalStory";
 import { motion } from "framer-motion";
 import Image from "next/image";
@@ -330,7 +332,9 @@ export default function HomePage() {
 
       <AISkinLab />
 
-      <HorizontalStory />
+      <AnatomyOfPurity />
+
+      <VideoSection />
 
       <section
         id="ingredients"
