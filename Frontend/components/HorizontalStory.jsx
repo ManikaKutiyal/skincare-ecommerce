@@ -41,13 +41,18 @@ export default function HorizontalStory() {
   const x = useTransform(scrollYProgress, [0, 1], ["0%", "-66.6%"]);
 
   return (
-    <section ref={targetRef} className="relative h-[400vh] bg-primary">
+    <section ref={targetRef} className="relative h-[400vh] bg-base">
+      {/* Linear gradient: top & bottom warm gold washes */}
+      <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(197,160,89,0.06)_0%,transparent_30%,transparent_70%,rgba(197,160,89,0.06)_100%)]" />
+      {/* Linear gradient: gold accent lines at top and bottom of section */}
+      <div className="pointer-events-none absolute inset-x-0 top-0 z-[1] h-px bg-[linear-gradient(to_right,transparent,rgba(197,160,89,0.5),transparent)]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-[1] h-px bg-[linear-gradient(to_right,transparent,rgba(197,160,89,0.4),transparent)]" />
       <div className="sticky top-0 flex h-screen items-center overflow-hidden">
         <motion.div style={{ x }} className="flex">
           {steps.map((step) => (
             <div
               key={step.id}
-              className="group relative h-screen w-screen flex-shrink-0 bg-primary"
+              className="group relative h-screen w-screen flex-shrink-0 bg-base"
             >
               <div className="section-shell relative z-10 flex h-full items-center">
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center w-full">
@@ -63,14 +68,14 @@ export default function HorizontalStory() {
                       <span className="text-[11px] font-bold uppercase tracking-[0.5em] text-secondary">
                         The Method
                       </span>
-                      <div className="h-[1px] w-16 bg-secondary/30" />
+                      <div className="h-[1px] w-16 bg-secondary/40" />
                     </motion.div>
 
                     <motion.h2
                       initial={{ opacity: 0, y: 40 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: 0.2 }}
-                      className="font-serif text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.95]"
+                      className="font-serif text-6xl sm:text-7xl lg:text-8xl text-primary leading-[0.95]"
                     >
                       {step.title}
                     </motion.h2>
@@ -79,7 +84,7 @@ export default function HorizontalStory() {
                       initial={{ opacity: 0, y: 20 }}
                       whileInView={{ opacity: 1, y: 0 }}
                       transition={{ duration: 1, delay: 0.4 }}
-                      className="mt-10 text-lg leading-relaxed text-white/60 sm:text-xl font-light"
+                      className="mt-10 text-lg leading-relaxed text-primary/65 sm:text-xl font-light"
                     >
                       {step.description}
                     </motion.p>
@@ -93,30 +98,30 @@ export default function HorizontalStory() {
                     >
                       {step.id === 2 ? (
                         <>
-                          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+                          <div className="rounded-2xl border border-divider bg-white p-6 shadow-soft">
                             <p className="text-[9px] font-bold uppercase tracking-widest text-secondary">Quality</p>
-                            <p className="mt-1 font-serif text-2xl text-white">Clinical Grade</p>
+                            <p className="mt-1 font-serif text-2xl text-primary">Clinical Grade</p>
                           </div>
-                          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
+                          <div className="rounded-2xl border border-divider bg-white p-6 shadow-soft">
                             <p className="text-[9px] font-bold uppercase tracking-widest text-secondary">Method</p>
-                            <p className="mt-1 font-serif text-2xl text-white">Cold-Stabilized</p>
+                            <p className="mt-1 font-serif text-2xl text-primary">Cold-Stabilized</p>
                           </div>
                         </>
                       ) : step.id === 3 ? (
                         <>
-                          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                            <p className="text-[9px] font-bold uppercase tracking-widest text-highlight">Hydration</p>
-                            <p className="mt-1 font-serif text-2xl text-white">Intensive</p>
+                          <div className="rounded-2xl border border-divider bg-white p-6 shadow-soft">
+                            <p className="text-[9px] font-bold uppercase tracking-widest text-secondary">Hydration</p>
+                            <p className="mt-1 font-serif text-2xl text-primary">Intensive</p>
                           </div>
-                          <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                            <p className="text-[9px] font-bold uppercase tracking-widest text-highlight">Elasticity</p>
-                            <p className="mt-1 font-serif text-2xl text-white">Radiance-Boost</p>
+                          <div className="rounded-2xl border border-divider bg-white p-6 shadow-soft">
+                            <p className="text-[9px] font-bold uppercase tracking-widest text-secondary">Elasticity</p>
+                            <p className="mt-1 font-serif text-2xl text-primary">Radiance-Boost</p>
                           </div>
                         </>
                       ) : (
-                        <div className="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-md">
-                          <p className="text-[9px] font-bold uppercase tracking-widest text-white/40">Sourcing</p>
-                          <p className="mt-1 font-serif text-2xl text-white">Rare Botanicals</p>
+                        <div className="rounded-2xl border border-divider bg-white p-6 shadow-soft">
+                           <p className="text-[9px] font-bold uppercase tracking-widest text-primary/40">Sourcing</p>
+                           <p className="mt-1 font-serif text-2xl text-primary">Rare Botanicals</p>
                         </div>
                       )}
                     </motion.div>
@@ -134,7 +139,7 @@ export default function HorizontalStory() {
                         className="object-cover transition-transform duration-[3s] group-hover:scale-105"
                         priority
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-primary/60 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-base/40 to-transparent" />
                     </div>
 
                     {/* Secondary Floating Image */}
@@ -147,7 +152,7 @@ export default function HorizontalStory() {
                         fill 
                         className="object-cover brightness-90 scale-110" 
                       />
-                      <div className="absolute inset-0 bg-primary/10" />
+                      <div className="absolute inset-0 bg-white/10" />
                     </div>
 
                     {/* Decorative Clinical Elements */}
@@ -160,7 +165,7 @@ export default function HorizontalStory() {
 
               {/* Progress Bar for the whole section */}
               <div className="absolute bottom-12 left-1/2 -translate-x-1/2 section-shell">
-                 <div className="h-[2px] w-full bg-white/10 rounded-full overflow-hidden">
+                 <div className="h-[2px] w-full bg-divider rounded-full overflow-hidden">
                     <motion.div 
                       style={{ scaleX: scrollYProgress }}
                       className="h-full bg-secondary origin-left"

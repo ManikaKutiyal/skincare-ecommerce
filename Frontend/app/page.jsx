@@ -5,7 +5,6 @@ import FeaturedProductsCamliqa from "@/components/FeaturedProductsCamliqa";
 import Footer from "@/components/Footer";
 import Reveal, { ImageReveal } from "@/components/Reveal";
 import AISkinLab from "@/components/AISkinLab";
-import HorizontalStory from "@/components/HorizontalStory";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -176,16 +175,15 @@ function TrustIcon({ kind }) {
   );
 }
 
+import BrandMarquee from "@/components/BrandMarquee";
+import CurationsSection from "@/components/CurationsSection";
+
 export default function HomePage() {
   return (
     <main className="bg-base text-primary antialiased selection:bg-secondary/25 selection:text-primary">
       <Navbar />
 
-      <section className="relative isolate flex min-h-screen items-center overflow-hidden text-white">
-        <div className="pointer-events-none absolute inset-0 bg-camliqa-mesh" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(201,168,76,0.08)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,168,76,0.05)_1px,transparent_1px)] bg-[size:78px_78px] opacity-25" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_40%_10%,rgba(201,168,76,0.16)_0%,rgba(201,168,76,0)_54%)] mix-blend-screen" />
-
+      <section className="relative isolate flex min-h-screen items-center overflow-hidden">
         <div className="section-shell relative z-10 py-24 sm:py-28">
           <motion.div
             initial="hidden"
@@ -195,24 +193,24 @@ export default function HomePage() {
             variants={reveal}
             className="max-w-5xl"
           >
-            <p className="text-xs font-medium uppercase tracking-[0.44em] text-secondary/95 sm:text-sm">CAMLIQA</p>
-            <h1 className="mt-6 font-serif text-6xl leading-[0.92] text-white sm:text-7xl lg:text-8xl">
+            <p className="text-xs font-medium uppercase tracking-[0.44em] text-secondary/95 sm:text-sm luxury-text-glow">CAMLIQA</p>
+            <h1 className="mt-6 font-serif text-6xl leading-[0.92] text-primary sm:text-7xl lg:text-8xl">
               Transform Your Skin & Hair with Camliqa
             </h1>
-            <p className="mt-8 max-w-2xl text-base leading-relaxed text-white/82 sm:text-lg">
+            <p className="mt-8 max-w-2xl text-base leading-relaxed text-primary/65 sm:text-lg">
               Experience the power of natural ingredients blended with modern care, designed to nourish,
               repair, and reveal your healthiest skin and hair every day.
             </p>
             <div className="mt-10 flex flex-col gap-4 sm:flex-row sm:items-center">
               <a
                 href="#featured-products"
-                className="inline-flex items-center justify-center border border-secondary/90 bg-white/5 px-9 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-secondary transition duration-300 hover:border-highlight hover:text-highlight hover:shadow-[0_0_0_1px_rgba(108,63,197,0.28),0_0_42px_rgba(108,63,197,0.18)]"
+                className="inline-flex items-center justify-center border border-primary bg-primary px-9 py-3.5 text-[11px] font-semibold uppercase tracking-[0.2em] text-white transition duration-300 hover:bg-primary/85 hover:shadow-[0_0_20px_rgba(197,160,89,0.3)]"
               >
                 Buy Now
               </a>
               <a
                 href="#ingredients"
-                className="group inline-flex items-center justify-center text-[11px] font-semibold uppercase tracking-[0.2em] text-white/80 transition duration-300 hover:text-white"
+                className="group inline-flex items-center justify-center text-[11px] font-semibold uppercase tracking-[0.2em] text-primary/80 transition duration-300 hover:text-primary"
               >
                 <span className="relative inline-block pb-1 after:absolute after:bottom-0 after:left-0 after:h-px after:w-full after:bg-secondary/85 after:transition-transform after:duration-300 group-hover:after:scale-x-110">
                   Explore Ingredients
@@ -223,8 +221,10 @@ export default function HomePage() {
         </div>
       </section>
 
-      <section id="collections" className="relative overflow-hidden py-24 sm:py-32">
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1100px_circle_at_25%_10%,rgba(201,168,76,0.08)_0%,rgba(201,168,76,0)_62%),radial-gradient(1200px_circle_at_80%_20%,rgba(108,63,197,0.06)_0%,rgba(108,63,197,0)_62%)]" />
+      <BrandMarquee />
+      <CurationsSection />
+
+      <section id="collections" className="relative py-24 sm:py-32">
         <div className="section-shell">
           <div className="flex flex-col items-center justify-between gap-8 md:flex-row md:items-end">
             <div className="max-w-2xl">
@@ -266,13 +266,13 @@ export default function HomePage() {
                 >
                   <Reveal delay={index * 0.2} width="100%" height="100%">
                     <article
-                      className={`group relative h-full overflow-hidden rounded-2xl border border-secondary/35 shadow-soft transition hover:-translate-y-1 hover:shadow-[0_26px_70px_-42px_rgba(26,26,62,0.55),0_0_46px_rgba(108,63,197,0.14)] ${isNight ? "bg-primary text-white" : "bg-white/70 backdrop-blur-md"}`}
+                      className={`group relative h-full overflow-hidden rounded-2xl border border-secondary/35 shadow-soft transition hover:-translate-y-1 hover:shadow-[0_26px_70px_-42px_rgba(26,29,54,0.48),0_0_46px_rgba(209,209,209,0.10)] ${isNight ? "bg-primary text-white" : "bg-white/70 backdrop-blur-md"}`}
                     >
                       <div
                         className={`pointer-events-none absolute inset-0 ${
                           isNight
-                            ? "bg-[radial-gradient(900px_circle_at_12%_12%,rgba(108,63,197,0.24)_0%,rgba(108,63,197,0)_62%),radial-gradient(900px_circle_at_90%_40%,rgba(201,168,76,0.16)_0%,rgba(201,168,76,0)_56%)]"
-                            : "bg-[linear-gradient(135deg,rgba(26,26,62,0.06)_0%,rgba(26,26,62,0)_48%,rgba(108,63,197,0.06)_100%)]"
+                            ? "bg-[radial-gradient(900px_circle_at_12%_12%,rgba(197,160,89,0.18)_0%,rgba(197,160,89,0)_62%),radial-gradient(900px_circle_at_90%_40%,rgba(209,209,209,0.10)_0%,rgba(209,209,209,0)_56%)]"
+                            : "bg-[linear-gradient(135deg,rgba(26,29,54,0.05)_0%,rgba(26,29,54,0)_48%,rgba(209,209,209,0.04)_100%)]"
                         }`}
                       />
 
@@ -330,14 +330,14 @@ export default function HomePage() {
 
       <AISkinLab />
 
-      <HorizontalStory />
-
       <section
         id="ingredients"
         className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_circle_at_22%_18%,rgba(201,168,76,0.10)_0%,rgba(201,168,76,0)_62%),radial-gradient(1200px_circle_at_78%_24%,rgba(108,63,197,0.08)_0%,rgba(108,63,197,0)_62%),linear-gradient(120deg,rgba(26,26,62,0.04)_0%,rgba(26,26,62,0)_42%,rgba(26,26,62,0.05)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1100px_circle_at_20%_60%,rgba(26,26,62,0.04)_0%,rgba(26,26,62,0)_58%)]" />
+        {/* Linear gradient: warm diagonal stripe */}
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(150deg,rgba(197,160,89,0.08)_0%,transparent_40%,rgba(209,209,209,0.06)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_circle_at_22%_18%,rgba(197,160,89,0.09)_0%,rgba(197,160,89,0)_62%),radial-gradient(1200px_circle_at_78%_24%,rgba(209,209,209,0.06)_0%,rgba(209,209,209,0)_62%),linear-gradient(120deg,rgba(26,29,54,0.03)_0%,rgba(26,29,54,0)_42%,rgba(26,29,54,0.04)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1100px_circle_at_20%_60%,rgba(26,29,54,0.03)_0%,rgba(26,29,54,0)_58%)]" />
 
         <div className="section-shell relative z-10">
           <Reveal delay={0.2} width="100%">
@@ -365,14 +365,14 @@ export default function HomePage() {
                       whileInView={{ opacity: 1, y: 0 }}
                       viewport={{ once: true, amount: 0.5 }}
                       transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-                      className="group flex items-center justify-between gap-6 rounded-2xl border border-secondary/45 bg-white/40 px-6 py-4 shadow-[0_18px_44px_-40px_rgba(26,26,62,0.55)] backdrop-blur-md transition hover:border-highlight/55 hover:bg-white/55"
+                      className="group flex items-center justify-between gap-6 rounded-2xl border border-secondary/45 bg-white/40 px-6 py-4 shadow-[0_18px_44px_-40px_rgba(26,29,54,0.45)] backdrop-blur-md transition hover:border-divider/55 hover:bg-white/55"
                     >
                       <div>
                         <p className="font-serif text-lg text-primary">{item.name}</p>
                         <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
                       </div>
                       <div className="relative">
-                        <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-highlight/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
+                        <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-divider/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
                         <IngredientIcon kind={item.icon} />
                       </div>
                     </motion.article>
@@ -470,7 +470,10 @@ export default function HomePage() {
             </div>
           </div>
 
-          <div className="rounded-2xl border border-secondary/55 bg-white/55 p-7 shadow-soft backdrop-blur-md">
+          <div
+            className="rounded-2xl border border-secondary/55 p-7 shadow-soft backdrop-blur-md"
+            style={{ background: 'linear-gradient(135deg, rgba(197,160,89,0.08) 0%, rgba(255,255,255,0.75) 40%, rgba(248,246,242,0.9) 100%)' }}
+          >
             <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-secondary">Expert Note</p>
             <p className="mt-4 font-serif text-2xl leading-tight text-primary">
               “Recommended for sensitive skin types when used consistently as a simple ritual.”
@@ -488,6 +491,7 @@ export default function HomePage() {
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
               className="rounded-2xl border border-secondary/45 bg-white/45 p-7 shadow-soft backdrop-blur-xl"
+              style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.85) 0%, rgba(248,246,242,0.6) 100%)' }}
             >
               <div className="flex items-center justify-between">
                 <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-secondary">Customer Review</p>
@@ -512,18 +516,30 @@ export default function HomePage() {
         variants={reveal}
         className="section-shell py-10 sm:py-12"
       >
-        <div className="rounded-2xl border border-secondary/40 bg-primary px-6 py-7 text-center text-white shadow-card sm:px-8">
-          <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-secondary/90">Launch Promotion</p>
-          <p className="mt-3 font-serif text-2xl leading-tight sm:text-3xl">
-            Get ₹449/- free product on every purchase of ₹1,000 and above.
-          </p>
+        <div
+            className="relative overflow-hidden rounded-2xl border border-secondary/40 bg-primary px-6 py-7 text-center text-white shadow-card sm:px-8"
+          >
+            {/* Linear gradient: horizontal gold sweep over dark */}
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(197,160,89,0.22)_0%,transparent_50%,rgba(197,160,89,0.12)_100%)]" />
+            {/* Linear gradient: diagonal shine */}
+            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0%,transparent_50%)]" />
+            <p className="relative text-[11px] font-medium uppercase tracking-[0.34em] text-secondary/90">Launch Promotion</p>
+            <p className="relative mt-3 font-serif text-2xl leading-tight sm:text-3xl">
+              Get ₹449/- free product on every purchase of ₹1,000 and above.
+            </p>
         </div>
       </motion.section>
 
       <FeaturedProductsCamliqa />
 
       <section className="section-shell pb-16 pt-10 sm:pb-20">
-        <div className="mx-auto max-w-5xl rounded-2xl border border-secondary/40 bg-white px-6 py-10 text-center shadow-soft sm:px-12 lg:px-20 lg:py-14">
+        <div
+          className="relative mx-auto max-w-5xl overflow-hidden rounded-2xl border border-secondary/40 px-6 py-10 text-center shadow-soft sm:px-12 lg:px-20 lg:py-14"
+          style={{ background: 'linear-gradient(135deg, rgba(197,160,89,0.07) 0%, #ffffff 30%, rgba(248,246,242,0.95) 70%, rgba(197,160,89,0.05) 100%)' }}
+        >
+          {/* Decorative top-left corner gradient line */}
+          <div className="pointer-events-none absolute left-0 top-0 h-[2px] w-2/3 bg-[linear-gradient(to_right,rgba(197,160,89,0.6),transparent)]" />
+          <div className="pointer-events-none absolute bottom-0 right-0 h-[2px] w-2/3 bg-[linear-gradient(to_left,rgba(197,160,89,0.6),transparent)]" />
           <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-secondary">Our Mission</p>
           <p className="mt-6 font-serif text-[2rem] leading-tight text-primary sm:text-[2.35rem] sm:leading-tight lg:text-[2.65rem]">
             Camliqa works every day to create safe, effective skincare and haircare solutions that deliver

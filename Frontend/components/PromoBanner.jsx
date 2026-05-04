@@ -1,8 +1,8 @@
 export default function PromoBanner() {
   return (
     <section className="relative overflow-hidden bg-primary py-24 md:py-28 lg:py-32">
-      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_18%_28%,rgba(108,63,197,0.38)_0%,rgba(108,63,197,0)_52%),radial-gradient(900px_circle_at_82%_20%,rgba(201,168,76,0.26)_0%,rgba(201,168,76,0)_56%)]" />
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(201,168,76,0.09)_1px,transparent_1px),linear-gradient(to_bottom,rgba(201,168,76,0.06)_1px,transparent_1px)] bg-[size:86px_86px] opacity-20" />
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_18%_28%,rgba(197,160,89,0.38)_0%,rgba(197,160,89,0)_52%),radial-gradient(900px_circle_at_82%_20%,rgba(197,160,89,0.26)_0%,rgba(197,160,89,0)_56%)]" />
+      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(to_right,rgba(197,160,89,0.09)_1px,transparent_1px),linear-gradient(to_bottom,rgba(197,160,89,0.06)_1px,transparent_1px)] bg-[size:86px_86px] opacity-20" />
       <div className="section-shell relative text-center text-offWhite">
         <p className="text-[11px] uppercase tracking-[0.28em] text-highlight">First Time?</p>
         <h2 className="mx-auto mt-6 max-w-3xl text-6xl leading-[1.07] sm:text-7xl">
@@ -23,7 +23,7 @@ export default function PromoBanner() {
           />
           <button
             type="button"
-            className="rounded-full border border-secondary/80 bg-offWhite px-8 py-4 text-base font-semibold text-primary transition duration-300 ease-out hover:border-highlight hover:shadow-[0_0_0_1px_rgba(108,63,197,0.25),0_0_34px_rgba(108,63,197,0.14)]"
+            className="rounded-full border border-secondary/80 bg-offWhite px-8 py-4 text-base font-semibold text-primary transition duration-300 ease-out hover:border-highlight hover:shadow-[0_0_0_1px_rgba(197,160,89,0.25),0_0_34px_rgba(197,160,89,0.14)]"
           >
             Claim Offer
           </button>

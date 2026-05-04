@@ -93,7 +93,7 @@ function BestSellerCard({ item }) {
         <button
           type="button"
           onClick={handleAddToCart}
-          className="mt-4 w-full rounded-lg bg-primary px-3 py-2.5 text-base font-medium text-offWhite transition hover:shadow-[0_0_0_1px_rgba(201,168,76,0.35),0_0_34px_rgba(108,63,197,0.12)]"
+          className="mt-4 w-full rounded-lg bg-primary px-3 py-2.5 text-base font-medium text-offWhite transition hover:shadow-[0_0_0_1px_rgba(197,160,89,0.35),0_0_34px_rgba(197,160,89,0.12)]"
         >
           Add to Cart
         </button>

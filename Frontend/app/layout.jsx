@@ -20,6 +20,7 @@ export const metadata = {
 import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
+import LuxuryGlow from "@/components/LuxuryGlow";
 
 export default function RootLayout({ children }) {
   return (
@@ -28,6 +29,7 @@ export default function RootLayout({ children }) {
         <SmoothScroll>
           <CartProvider>
             <ScrollProgressBar />
+            <LuxuryGlow />
             <CustomCursor />
             {children}
           </CartProvider>

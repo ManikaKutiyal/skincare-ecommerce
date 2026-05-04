@@ -47,7 +47,7 @@ export default function FeaturedProductsCamliqa() {
           products.map((product, index) => (
             <Reveal key={product.id} delay={index * 0.15} width="100%">
               <article
-                className="rounded-2xl border border-secondary/45 bg-white/45 p-6 shadow-soft backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-[0_24px_60px_-34px_rgba(26,26,62,0.42),0_0_55px_rgba(108,63,197,0.16)]"
+                className="rounded-2xl border border-secondary/45 bg-white/45 p-6 shadow-soft backdrop-blur-xl transition hover:-translate-y-1 hover:shadow-[0_24px_60px_-34px_rgba(26,29,54,0.38),0_0_55px_rgba(197,160,89,0.14)]"
               >
                 <Link href={`/products/${product.id}`} className="block">
                   <div className="flex items-start justify-between gap-6">
@@ -64,7 +64,7 @@ export default function FeaturedProductsCamliqa() {
                     </div>
 
                     <div className="w-28 shrink-0 sm:w-32">
-                      <div className="aspect-square relative overflow-hidden rounded-xl border border-secondary/35 bg-white/80 p-3 shadow-[0_18px_40px_-34px_rgba(26,26,62,0.55)]">
+                      <div className="aspect-square relative overflow-hidden rounded-xl border border-secondary/35 bg-white/80 p-3 shadow-[0_18px_40px_-34px_rgba(26,29,54,0.48)]">
                         <Image
                           src={product.image}
                           alt={product.name}

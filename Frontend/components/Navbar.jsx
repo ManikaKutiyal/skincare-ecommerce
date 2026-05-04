@@ -3,22 +3,15 @@ import React from 'react';
 import { useCartStore } from '../store/useCartStore';
 
 const navLinks = [
-  { label: "Collections", href: "#collections" },
-  { label: "Ingredients", href: "#ingredients" },
-  { label: "Featured Products", href: "#featured-products" }
+  { label: "SHOP ALL", href: "#collections" },
+  { label: "SKIN CARE", href: "#collections" },
+  { label: "HAIR CARE", href: "#collections" },
+  { label: "OUR ETHOS", href: "#ingredients" }
 ];
-
-function IconStar() {
-  return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="m12 3.5 2.8 5.68 6.27.9-4.54 4.42 1.07 6.25L12 17.8 6.4 20.75l1.07-6.25L2.93 10.08l6.27-.9Z" />
-    </svg>
-  );
-}
 
 function IconSearch() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.2">
       <circle cx="11" cy="11" r="7" />
       <path d="m20 20-3.6-3.6" />
     </svg>
@@ -27,7 +20,7 @@ function IconSearch() {
 
 function IconUser() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.2">
       <circle cx="12" cy="8" r="3.5" />
       <path d="M5 20c1.7-3 4.1-4.5 7-4.5s5.3 1.5 7 4.5" />
     </svg>
@@ -36,10 +29,9 @@ function IconUser() {
 
 function IconCart() {
   return (
-    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.8">
-      <path d="M3 4h2l2 11h10l2-8H7" />
-      <circle cx="10" cy="19" r="1.5" />
-      <circle cx="17" cy="19" r="1.5" />
+    <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth="1.2">
+      <path d="M6 5H18L19 18H5L6 5Z" />
+      <path d="M9 5V3C9 2.44772 9.44772 2 10 2H14C14.5523 2 15 2.44772 15 3V5" />
     </svg>
   );
 }
@@ -53,54 +45,55 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 overflow-hidden border-b border-white/10 text-white backdrop-blur-md">
-      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(26,26,62,0.95)_0%,rgba(40,24,88,0.94)_50%,rgba(26,26,62,0.95)_100%)]" />
-      <div className="section-shell relative z-10 flex items-center justify-between py-4">
-        <a href="#" className="flex flex-col">
-          <span className="font-serif text-3xl leading-none tracking-[0.02em] text-white">CAMLIQA</span>
-          <span className="mt-1 text-[10px] uppercase tracking-[0.22em] text-secondary/90 sm:text-[11px]">
-            Natural Products For Your Natural Beauty
-          </span>
-        </a>
-
-        <nav className="hidden items-center gap-8 lg:flex">
+    <header className="sticky top-0 z-50 w-full border-b border-[#C5A059]/10 bg-white/70 py-4 backdrop-blur-xl shadow-[0_4px_30px_rgba(197,160,89,0.05)]">
+      <div className="section-shell relative flex items-center justify-between">
+        
+        {/* Left: Navigation Links */}
+        <nav className="hidden flex-1 items-center gap-6 lg:flex">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
-              className="text-[0.98rem] font-medium text-white/90 transition duration-300 hover:text-white"
+              className="text-[10px] font-bold uppercase tracking-[0.2em] text-primary/70 transition duration-300 hover:text-primary"
             >
               {link.label}
             </a>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3 text-white">
-          <button type="button" className="hidden transition hover:text-white/80 md:inline-flex" aria-label="Wishlist">
-            <IconStar />
-          </button>
-          <button type="button" className="transition hover:text-white/80" aria-label="Search">
+        {/* Center: Logo */}
+        <div className="flex flex-1 justify-center">
+          <a href="#" className="flex flex-col items-center">
+            <span className="font-serif text-3xl leading-none tracking-[0.02em] text-primary">Camliqa</span>
+          </a>
+        </div>
+
+        {/* Right: Actions */}
+        <div className="flex flex-1 items-center justify-end gap-5 text-primary/80">
+          <button type="button" className="transition hover:text-primary" aria-label="Search">
             <IconSearch />
           </button>
-          <button type="button" className="transition hover:text-white/80" aria-label="Account">
+          <button type="button" className="hidden transition hover:text-primary md:block" aria-label="Account">
             <IconUser />
           </button>
-          <button type="button" onClick={openCart} className="relative transition hover:opacity-70" aria-label="Cart">
+          <button type="button" onClick={openCart} className="relative transition hover:text-primary" aria-label="Cart">
             <IconCart />
             {mounted && cartCount() > 0 && (
-              <span className="absolute -right-2 -top-1 inline-flex h-4 min-w-4 items-center justify-center rounded-full bg-secondary px-1 text-[9px] font-semibold leading-none text-primary">
+              <span className="absolute -right-2 -top-1.5 flex h-4 min-w-4 items-center justify-center rounded-full bg-primary px-1 text-[8px] font-bold leading-none text-white">
                 {cartCount()}
               </span>
             )}
           </button>
+          
           <button
             type="button"
-            className="text-2xl leading-none transition hover:text-white/80 lg:hidden"
+            className="text-2xl leading-none transition hover:text-primary lg:hidden"
             aria-label="Open menu"
           >
             ☰
           </button>
         </div>
+
       </div>
     </header>
   );

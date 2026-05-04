@@ -111,7 +111,7 @@ export default function CartDrawer() {
                                 <span className="text-xl font-semibold text-ink">${cartTotal().toFixed(2)}</span>
                             </div>
                             <p className="mb-6 text-sm text-ink/60">Shipping and taxes calculated at checkout.</p>
-                            <button className="w-full rounded-full bg-ink py-4 text-base font-medium text-white shadow-lg transition hover:opacity-90">
+                            <button className="w-full rounded-full bg-primary py-4 text-base font-medium text-white shadow-lg transition hover:opacity-90">
                                 Checkout
                             </button>
                         </div>

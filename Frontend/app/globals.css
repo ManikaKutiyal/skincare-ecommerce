@@ -7,13 +7,15 @@
 :root {
   --font-sans: "DM Sans";
   --font-serif: "Cormorant Garamond";
-  --bg: #f9f8ff;
-  --section: #f1eefa;
-  --accent-primary: #1a1a3e;
-  --accent-secondary: #c9a84c;
-  --highlight: #6c3fc5;
-  --muted: #cfc7e2;
-  --ink: #101024;
+  --bg: #F8F6F2;
+  --section: #F0EDE8;
+  --accent-primary: #1A1D36;
+  --accent-secondary: #C5A059;
+  --highlight: #D1D1D1;
+  --muted: #D1D1D1;
+  --ink: #1A1D36;
+  --text: #333333;
+  --divider: #D1D1D1;
 }
 
 * {
@@ -25,13 +27,11 @@ html,
 body {
   margin: 0;
   padding: 0;
-  background:
-    radial-gradient(80% 80% at 15% 8%, rgba(108, 63, 197, 0.12) 0%, rgba(108, 63, 197, 0) 56%),
-    radial-gradient(65% 65% at 88% 10%, rgba(201, 168, 76, 0.2) 0%, rgba(201, 168, 76, 0) 62%),
-    var(--bg);
+  background-color: transparent;
   color: var(--ink);
   font-family: var(--font-sans), sans-serif;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 h1,
@@ -117,7 +117,7 @@ img {
 
 .cinematic-surface {
   background:
-    linear-gradient(135deg, rgba(26, 26, 62, 0.97) 0%, rgba(49, 30, 110, 0.95) 52%, rgba(26, 26, 62, 0.99) 100%);
+    linear-gradient(135deg, rgba(26, 29, 54, 0.97) 0%, rgba(42, 36, 70, 0.95) 52%, rgba(26, 29, 54, 0.99) 100%);
 }
 
 /* Lenis Smooth Scroll Fixes */
@@ -135,4 +135,44 @@ html.lenis {
 
 .lenis.lenis-stopped {
   overflow: hidden;
+}
+
+/* Luxury Effects */
+.luxury-text-glow {
+  text-shadow: 0 0 15px rgba(197, 160, 89, 0.3);
+}
+
+.luxury-card {
+  @apply relative overflow-hidden rounded-3xl bg-white/30 backdrop-blur-sm border border-white/40 transition-all duration-500 hover:bg-white/50 hover:shadow-[0_30px_60px_-20px_rgba(197,160,89,0.12)];
+}
+
+.luxury-card::after {
+  content: "";
+  @apply absolute inset-0 pointer-events-none opacity-0 transition-opacity duration-500;
+  background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(197, 160, 89, 0.15), transparent 60%);
+}
+
+.luxury-card:hover::after {
+  @apply opacity-100;
+}
+
+.golden-wash {
+  background: linear-gradient(180deg, rgba(197, 160, 89, 0.05) 0%, transparent 100%);
+}
+
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.03;
+  z-index: 10;
+  pointer-events: none;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  mix-blend-mode: overlay;
 }

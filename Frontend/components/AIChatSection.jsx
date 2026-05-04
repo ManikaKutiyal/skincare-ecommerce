@@ -49,7 +49,7 @@ export default function AIChatSection() {
 
             <button
               type="button"
-              className="mt-8 w-full rounded-full bg-primary px-7 py-4 text-base font-semibold text-offWhite shadow-soft transition duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(201,168,76,0.35),0_0_36px_rgba(108,63,197,0.12)]"
+              className="mt-8 w-full rounded-full bg-primary px-7 py-4 text-base font-semibold text-offWhite shadow-soft transition duration-300 ease-out hover:shadow-[0_0_0_1px_rgba(197,160,89,0.35),0_0_36px_rgba(197,160,89,0.12)]"
             >
               Get Your Routine
             </button>
