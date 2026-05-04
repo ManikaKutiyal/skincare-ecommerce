@@ -5,6 +5,9 @@ import FeaturedProductsCamliqa from "@/components/FeaturedProductsCamliqa";
 import Footer from "@/components/Footer";
 import Reveal, { ImageReveal } from "@/components/Reveal";
 import AISkinLab from "@/components/AISkinLab";
+import AnatomyOfPurity from "@/components/AnatomyOfPurity";
+import VideoSection from "@/components/VideoSection";
+import HorizontalStory from "@/components/HorizontalStory";
 import { motion } from "framer-motion";
 import Image from "next/image";
 
@@ -330,6 +333,10 @@ export default function HomePage() {
 
       <AISkinLab />
 
+      <AnatomyOfPurity />
+
+      <VideoSection />
+
       <section
         id="ingredients"
         className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
@@ -351,32 +358,83 @@ export default function HomePage() {
             <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-secondary/30 bg-white/55 shadow-soft backdrop-blur-md">
               <div className="p-7 sm:p-9 lg:p-10">
                 <p className="text-[11px] font-semibold uppercase tracking-[0.36em] text-secondary/90">
-                  Clinically proven. Naturally potent.
+                  Micro-efficacy
                 </p>
-                <h3 className="mt-3 font-serif text-3xl leading-tight text-primary sm:text-4xl">
-                  Naturally Potent. Clinically Smart.
-                </h3>
+                <div className="mt-3 grid gap-6 lg:grid-cols-[1.1fr_1.2fr] lg:items-end">
+                  <h3 className="font-serif text-3xl leading-tight text-primary sm:text-4xl">
+                    The Anatomy of a Drop
+                  </h3>
+                  <p className="max-w-xl text-sm leading-relaxed text-primary/65">
+                    Our elixirs are concentrated at the molecular level. Every drop delivers a calibrated blend of
+                    science and nature directly to your dermal layer.
+                  </p>
+                </div>
 
-                <div className="mt-8 grid gap-4 sm:grid-cols-2">
-                  {ingredients.map((item, index) => (
-                    <motion.article
-                      key={item.name}
-                      initial={{ opacity: 0, y: 16 }}
-                      whileInView={{ opacity: 1, y: 0 }}
-                      viewport={{ once: true, amount: 0.5 }}
-                      transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-                      className="group flex items-center justify-between gap-6 rounded-2xl border border-secondary/45 bg-white/40 px-6 py-4 shadow-[0_18px_44px_-40px_rgba(26,29,54,0.45)] backdrop-blur-md transition hover:border-divider/55 hover:bg-white/55"
-                    >
-                      <div>
-                        <p className="font-serif text-lg text-primary">{item.name}</p>
-                        <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
-                      </div>
-                      <div className="relative">
-                        <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-divider/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
-                        <IngredientIcon kind={item.icon} />
-                      </div>
-                    </motion.article>
-                  ))}
+                <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+                  <div className="grid gap-4">
+                    {ingredients.slice(0, 2).map((item, index) => (
+                      <motion.article
+                        key={item.name}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.45 }}
+                        transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
+                        className="group relative overflow-hidden rounded-2xl border border-secondary/45 bg-white/40 px-6 py-5 shadow-[0_18px_44px_-40px_rgba(26,26,62,0.55)] backdrop-blur-md transition hover:border-highlight/55 hover:bg-white/55"
+                      >
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_circle_at_10%_25%,rgba(201,168,76,0.14)_0%,rgba(201,168,76,0)_58%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+                        <div className="relative flex items-start justify-between gap-6">
+                          <div>
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-secondary/75">
+                              {String(index + 1).padStart(2, "0")}.
+                            </p>
+                            <p className="mt-2 font-serif text-lg text-primary">{item.name}</p>
+                            <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
+                          </div>
+                          <div className="relative mt-1">
+                            <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-highlight/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
+                            <IngredientIcon kind={item.icon} />
+                          </div>
+                        </div>
+                      </motion.article>
+                    ))}
+                  </div>
+
+                  <div className="relative mx-auto flex h-[240px] w-[240px] items-center justify-center sm:h-[300px] sm:w-[300px] lg:h-[360px] lg:w-[360px]">
+                    <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.72)_42%,rgba(255,255,255,0.14)_74%,rgba(255,255,255,0)_100%)] shadow-[0_40px_120px_-75px_rgba(26,26,62,0.65)]" />
+                    <div className="pointer-events-none absolute inset-4 rounded-full border border-secondary/25 bg-[radial-gradient(circle_at_50%_50%,rgba(108,63,197,0.10)_0%,rgba(108,63,197,0)_62%)]" />
+                    <div className="pointer-events-none absolute inset-10 rounded-full border border-highlight/25 bg-[radial-gradient(circle_at_50%_50%,rgba(201,168,76,0.10)_0%,rgba(201,168,76,0)_65%)]" />
+                    <div className="relative flex h-24 w-24 items-center justify-center rounded-full border border-secondary/20 bg-white/70 shadow-soft backdrop-blur-md sm:h-28 sm:w-28">
+                      <IngredientIcon kind="drop" />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4">
+                    {ingredients.slice(2).map((item, index) => (
+                      <motion.article
+                        key={item.name}
+                        initial={{ opacity: 0, y: 16 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, amount: 0.45 }}
+                        transition={{ duration: 0.55, delay: (index + 2) * 0.06, ease: "easeOut" }}
+                        className="group relative overflow-hidden rounded-2xl border border-secondary/45 bg-white/40 px-6 py-5 shadow-[0_18px_44px_-40px_rgba(26,26,62,0.55)] backdrop-blur-md transition hover:border-highlight/55 hover:bg-white/55"
+                      >
+                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_circle_at_92%_20%,rgba(108,63,197,0.12)_0%,rgba(108,63,197,0)_56%)] opacity-0 transition duration-500 group-hover:opacity-100" />
+                        <div className="relative flex items-start justify-between gap-6">
+                          <div>
+                            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-secondary/75">
+                              {String(index + 3).padStart(2, "0")}.
+                            </p>
+                            <p className="mt-2 font-serif text-lg text-primary">{item.name}</p>
+                            <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
+                          </div>
+                          <div className="relative mt-1">
+                            <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-highlight/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
+                            <IngredientIcon kind={item.icon} />
+                          </div>
+                        </div>
+                      </motion.article>
+                    ))}
+                  </div>
                 </div>
               </div>
 
@@ -482,29 +540,40 @@ export default function HomePage() {
           </div>
         </div>
 
-        <div className="mt-6 grid gap-5 lg:grid-cols-3">
-          {testimonials.map((item, index) => (
-            <motion.article
-              key={item.name}
-              initial={{ opacity: 0, y: 18 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.35 }}
-              transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
-              className="rounded-2xl border border-secondary/45 bg-white/45 p-7 shadow-soft backdrop-blur-xl"
-              style={{ background: 'linear-gradient(145deg, rgba(255,255,255,0.85) 0%, rgba(248,246,242,0.6) 100%)' }}
-            >
-              <div className="flex items-center justify-between">
-                <p className="text-[11px] font-medium uppercase tracking-[0.34em] text-secondary">Customer Review</p>
-                <div className="flex items-center gap-1">
-                  {Array.from({ length: item.rating }).map((_, starIndex) => (
-                    <StarIcon key={starIndex} />
-                  ))}
+        <div className="mt-12 overflow-hidden rounded-2xl border border-secondary/30 bg-white/30 px-6 py-16 shadow-soft backdrop-blur-md sm:px-10 lg:px-14">
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-secondary/90">THE GUIDE</p>
+            <h3 className="mt-4 font-serif text-4xl text-primary sm:text-5xl lg:text-6xl">Customer Reviews</h3>
+          </div>
+
+          <div className="mx-auto mt-16 grid max-w-6xl gap-12 lg:grid-cols-3 lg:gap-14">
+            {testimonials.slice(0, 3).map((item, index) => (
+              <motion.article
+                key={item.name}
+                initial={{ opacity: 0, y: 18 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.35 }}
+                transition={{ duration: 0.6, delay: index * 0.08, ease: "easeOut" }}
+                className="relative pl-8 sm:pl-10"
+              >
+                <span className="pointer-events-none absolute left-2 top-0 h-full w-px bg-secondary/25" />
+                <span className="pointer-events-none absolute left-0 top-0 h-12 w-12 rounded-full bg-secondary/10 blur-[1px]" />
+                <span className="pointer-events-none absolute left-1 top-1 font-serif text-5xl tracking-tight text-secondary/15">
+                  {String(index + 1).padStart(2, "0")}
+                </span>
+
+                <div className="relative">
+                  <h4 className="font-serif text-3xl text-primary">{item.name}</h4>
+                  <div className="mt-3 flex items-center gap-1">
+                    {Array.from({ length: item.rating }).map((_, starIndex) => (
+                      <StarIcon key={starIndex} />
+                    ))}
+                  </div>
+                  <p className="mt-4 text-sm leading-relaxed text-primary/65">“{item.quote}”</p>
                 </div>
-              </div>
-              <p className="mt-5 text-sm leading-relaxed text-primary/75">“{item.quote}”</p>
-              <p className="mt-5 text-xs font-medium uppercase tracking-[0.28em] text-primary/70">{item.name}</p>
-            </motion.article>
-          ))}
+              </motion.article>
+            ))}
+          </div>
         </div>
       </motion.section>
 
@@ -516,17 +585,53 @@ export default function HomePage() {
         variants={reveal}
         className="section-shell py-10 sm:py-12"
       >
-        <div
-            className="relative overflow-hidden rounded-2xl border border-secondary/40 bg-primary px-6 py-7 text-center text-white shadow-card sm:px-8"
-          >
-            {/* Linear gradient: horizontal gold sweep over dark */}
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(90deg,rgba(197,160,89,0.22)_0%,transparent_50%,rgba(197,160,89,0.12)_100%)]" />
-            {/* Linear gradient: diagonal shine */}
-            <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.05)_0%,transparent_50%)]" />
-            <p className="relative text-[11px] font-medium uppercase tracking-[0.34em] text-secondary/90">Launch Promotion</p>
-            <p className="relative mt-3 font-serif text-2xl leading-tight sm:text-3xl">
-              Get ₹449/- free product on every purchase of ₹1,000 and above.
-            </p>
+        <div className="relative overflow-hidden rounded-[28px] border border-secondary/30 bg-white/55 shadow-soft backdrop-blur-md">
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1100px_circle_at_18%_22%,rgba(201,168,76,0.14)_0%,rgba(201,168,76,0)_60%),radial-gradient(1100px_circle_at_82%_18%,rgba(108,63,197,0.12)_0%,rgba(108,63,197,0)_62%),linear-gradient(120deg,rgba(26,26,62,0.05)_0%,rgba(26,26,62,0)_52%,rgba(26,26,62,0.06)_100%)]" />
+
+          <div className="relative grid gap-10 px-7 py-12 sm:px-10 sm:py-14 lg:grid-cols-[1.35fr_0.9fr] lg:items-center lg:px-14 lg:py-16">
+            <div>
+              <div className="flex items-center gap-3 text-secondary/90">
+                <span className="inline-flex h-7 w-7 items-center justify-center rounded-full border border-secondary/35 bg-white/55">
+                  <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="1.4">
+                    <path d="M4.5 12.5c0-4.8 4.1-8 9.4-8.1" />
+                    <path d="M5 13.5c.7 4.2 3.7 6.9 8 6.9 3.5 0 6.2-2 6.2-5.1 0-2.2-1.4-3.5-3.4-4.4" />
+                  </svg>
+                </span>
+                <p className="text-[11px] font-semibold uppercase tracking-[0.36em]">Launch Promotion</p>
+              </div>
+
+              <h3 className="mt-6 font-serif text-4xl leading-tight text-primary sm:text-5xl">
+                Get ₹449/- free product on every purchase of ₹1,000 and above.
+              </h3>
+              <p className="mt-5 max-w-xl text-sm leading-relaxed text-primary/65">
+                Add your favourites to cart and your complimentary product will be included automatically at checkout.
+              </p>
+
+              <div className="mt-8">
+                <a
+                  href="#featured-products"
+                  className="group inline-flex items-center justify-center gap-3 rounded-full bg-primary px-10 py-3.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-white shadow-card transition hover:bg-primary/90"
+                >
+                  Shop Now
+                  <span className="text-white/80 transition group-hover:translate-x-0.5">→</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="flex items-center justify-center lg:justify-end">
+              <div className="relative flex h-[210px] w-[210px] items-center justify-center sm:h-[250px] sm:w-[250px]">
+                <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.75)_42%,rgba(255,255,255,0.12)_76%,rgba(255,255,255,0)_100%)] shadow-[0_40px_110px_-80px_rgba(26,26,62,0.7)]" />
+                <div className="pointer-events-none absolute inset-6 rounded-full border border-secondary/25" />
+                <div className="pointer-events-none absolute inset-12 rounded-full border border-highlight/25" />
+                <div className="relative flex h-24 w-24 items-center justify-center rounded-full border border-secondary/20 bg-white/75 shadow-soft backdrop-blur-md sm:h-28 sm:w-28">
+                  <svg viewBox="0 0 24 24" className="h-10 w-10 text-secondary" fill="none" stroke="currentColor" strokeWidth="1.2">
+                    <path d="M12 3l1.2 6.2L19 12l-5.8 2.8L12 21l-1.2-6.2L5 12l5.8-2.8L12 3Z" />
+                    <path d="M17.7 6.3 19.2 4.8M6.3 17.7 4.8 19.2" className="text-highlight" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </motion.section>
 
@@ -547,6 +652,107 @@ export default function HomePage() {
           </p>
         </div>
       </section>
+
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.25 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+        variants={reveal}
+        className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1400px_circle_at_16%_28%,rgba(201,168,76,0.12)_0%,rgba(201,168,76,0)_58%),radial-gradient(1400px_circle_at_84%_30%,rgba(108,63,197,0.10)_0%,rgba(108,63,197,0)_60%),linear-gradient(120deg,rgba(26,26,62,0.04)_0%,rgba(26,26,62,0)_46%,rgba(26,26,62,0.05)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_50%_62%,rgba(26,26,62,0.035)_0%,rgba(26,26,62,0)_62%)]" />
+
+        <div className="section-shell relative z-10">
+          <div className="mx-auto max-w-6xl text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-secondary/90">
+              THE CLINICAL TRUTH
+            </p>
+            <h3 className="mt-6 font-serif text-5xl text-primary sm:text-6xl lg:text-7xl">Proven Efficacy</h3>
+
+            <div className="mt-16 grid gap-12 lg:grid-cols-3 lg:gap-0">
+              {[
+                {
+                  value: "98%",
+                  text: "Experienced an immediate surge in hydration and softness upon first use."
+                },
+                {
+                  value: "94%",
+                  text: "Noticed a dramatic reduction in dullness and uneven pigmentation after 14 days."
+                },
+                {
+                  value: "100%",
+                  text: "Agreed the formulations felt entirely weightless, breathable, and deeply natural."
+                }
+              ].map((stat, index) => (
+                <div key={stat.value} className="relative px-4">
+                  {index !== 0 ? (
+                    <span className="pointer-events-none absolute left-0 top-6 hidden h-[150px] w-px bg-secondary/20 lg:block" />
+                  ) : null}
+
+                  <p className="font-serif text-6xl tracking-tight text-primary sm:text-7xl lg:text-8xl">
+                    {stat.value}
+                  </p>
+                  <p className="mx-auto mt-8 max-w-xs text-sm leading-relaxed text-primary/55">{stat.text}</p>
+
+                  <span className="pointer-events-none absolute left-1/2 top-2 hidden -translate-x-1/2 lg:block">
+                    <span className="relative block h-10 w-10">
+                      <span className="absolute inset-0 rounded-full border border-highlight/25" />
+                      <span className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-[0_0_0_8px_rgba(255,255,255,0.35)]" />
+                    </span>
+                  </span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </motion.section>
+
+      <motion.section
+        initial="hidden"
+        whileInView="show"
+        viewport={{ once: true, amount: 0.35 }}
+        transition={{ duration: 0.75, ease: "easeOut" }}
+        variants={reveal}
+        className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+      >
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1400px_circle_at_18%_30%,rgba(201,168,76,0.12)_0%,rgba(201,168,76,0)_58%),radial-gradient(1400px_circle_at_82%_28%,rgba(108,63,197,0.10)_0%,rgba(108,63,197,0)_60%),linear-gradient(120deg,rgba(26,26,62,0.04)_0%,rgba(26,26,62,0)_46%,rgba(26,26,62,0.05)_100%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_50%_60%,rgba(26,26,62,0.035)_0%,rgba(26,26,62,0)_62%)]" />
+
+        <div className="section-shell relative z-10">
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-secondary/90">THE WHISPERS</p>
+
+            <div className="mt-10 flex items-center justify-center">
+              <span className="inline-flex items-center justify-center rounded-2xl border border-secondary/20 bg-white/50 px-6 py-4 shadow-soft backdrop-blur-md">
+                <svg viewBox="0 0 24 24" className="h-10 w-10 text-secondary/35" fill="none" stroke="currentColor" strokeWidth="1">
+                  <path d="M7.5 9.2c0-2.5 1.7-4.2 4.1-4.2v2.2c-1.2 0-2 .9-2 2.2v.5c0 1.6-.9 3.1-2.2 4.1l-.9.7V14c.6-.6 1-1.4 1-2.2v-2.6Z" />
+                  <path d="M16.5 9.2c0-2.5 1.7-4.2 4.1-4.2v2.2c-1.2 0-2 .9-2 2.2v.5c0 1.6-.9 3.1-2.2 4.1l-.9.7V14c.6-.6 1-1.4 1-2.2v-2.6Z" />
+                </svg>
+              </span>
+            </div>
+
+            <p className="mt-8 font-serif text-3xl italic leading-snug text-primary sm:text-4xl sm:leading-snug lg:text-5xl">
+              “An absolute revelation. Camliqa isn't just skincare; it is a natural ritual that redefines what it
+              means to be truly luminous.”
+            </p>
+
+            <div className="mt-10 flex items-center justify-center">
+              <span className="relative block h-10 w-10">
+                <span className="absolute inset-0 rounded-full border border-highlight/25" />
+                <span className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-[0_0_0_8px_rgba(255,255,255,0.35)]" />
+              </span>
+            </div>
+
+            <div className="mt-6 flex items-center justify-center gap-6 text-secondary/70">
+              <span className="h-px w-16 bg-secondary/20" />
+              <p className="text-[11px] font-medium uppercase tracking-[0.36em]">Vogue Aesthetics</p>
+              <span className="h-px w-16 bg-secondary/20" />
+            </div>
+          </div>
+        </div>
+      </motion.section>
 
       <Footer />
     </main>
