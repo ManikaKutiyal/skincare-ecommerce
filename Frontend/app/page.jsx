@@ -335,17 +335,18 @@ export default function HomePage() {
 
       <AnatomyOfPurity />
 
-      <VideoSection />
+      {/* Thin Golden Divider */}
+      <div className="section-shell relative z-10">
+        <div className="h-px w-full bg-secondary/20 opacity-40" />
+      </div>
 
-      <section
-        id="ingredients"
-        className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
-      >
-        {/* Background Gradients: Warm gold on left, Soft purple on right */}
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_circle_at_15%_30%,rgba(197,160,89,0.12)_0%,transparent_60%),radial-gradient(1200px_circle_at_85%_70%,rgba(108,63,197,0.08)_0%,transparent_60%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0)_0%,rgba(108,63,197,0.03)_100%)]" />
+      <section className="relative overflow-hidden pt-24 sm:pt-32">
+        {/* Unified Background matching Anatomy of Purity */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1400px_circle_at_15%_10%,rgba(201,168,76,0.08)_0%,transparent_60%),radial-gradient(1400px_circle_at_85%_30%,rgba(108,63,197,0.06)_0%,transparent_60%)]" />
+        
+        <VideoSection />
 
-        <div className="section-shell relative z-10 mx-auto max-w-6xl px-4">
+        <div id="ingredients" className="relative z-10 mx-auto max-w-6xl px-4 pt-16 pb-14 sm:pb-16 lg:pb-20">
           <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr_1fr] lg:items-center">
             {/* Left Column: Title + First 2 Cards */}
             <div className="flex flex-col gap-8">
