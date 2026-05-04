@@ -21,11 +21,13 @@ import CustomCursor from "@/components/CustomCursor";
 import SmoothScroll from "@/components/SmoothScroll";
 import ScrollProgressBar from "@/components/ScrollProgressBar";
 import LuxuryGlow from "@/components/LuxuryGlow";
+import Preloader from "@/components/Preloader";
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${inter.variable} ${playfair.variable}`}>
       <body className="antialiased selection:bg-secondary/30">
+        <Preloader />
         <SmoothScroll>
           <CartProvider>
             <ScrollProgressBar />

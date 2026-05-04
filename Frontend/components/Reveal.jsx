@@ -54,7 +54,7 @@ export function ImageReveal({ children, delay = 0.2 }) {
         initial={{ scale: 1.2, opacity: 0 }}
         animate={isInView ? { scale: 1, opacity: 1 } : {}}
         transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1], delay }}
-        className="w-full h-full"
+        className="relative w-full h-full"
       >
         {children}
       </motion.div>

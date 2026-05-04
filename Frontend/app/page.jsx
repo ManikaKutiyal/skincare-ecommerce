@@ -1,7 +1,7 @@
 "use client";
 
 import Navbar from "@/components/Navbar";
-import FeaturedProductsCamliqa from "@/components/FeaturedProductsCamliqa";
+import FeaturedProducts from "@/components/FeaturedProducts";
 import Footer from "@/components/Footer";
 import Reveal, { ImageReveal } from "@/components/Reveal";
 import AISkinLab from "@/components/AISkinLab";
@@ -28,7 +28,7 @@ const collections = [
   {
     name: "Targeted Treatments",
     description: "Precision serums for every concern",
-    imageSrc: "https://images.unsplash.com/photo-1601049541289-9b1b7abc7194?auto=format&fit=crop&q=80&w=800",
+    imageSrc: "https://images.unsplash.com/photo-1600857062241-98e5dba7f214?auto=format&fit=crop&q=80&w=800",
     imageAlt: "Camliqa Targeted Treatments product shot"
   }
 ];
@@ -457,7 +457,7 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.75, ease: "easeOut" }}
         variants={reveal}
-        className="section-shell py-12 sm:py-14 lg:py-16"
+        className="section-shell py-12 sm:py-20 lg:py-24"
       >
         <div className="text-center">
           <p className="text-[11px] font-medium uppercase tracking-[0.38em] text-secondary sm:text-xs">
@@ -635,7 +635,7 @@ export default function HomePage() {
         </div>
       </motion.section>
 
-      <FeaturedProductsCamliqa />
+      <FeaturedProducts />
 
       <section className="section-shell pb-16 pt-10 sm:pb-20">
         <div
@@ -659,49 +659,38 @@ export default function HomePage() {
         viewport={{ once: true, amount: 0.25 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
         variants={reveal}
-        className="relative overflow-hidden py-20 sm:py-24 lg:py-28"
+        className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
       >
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1400px_circle_at_16%_28%,rgba(201,168,76,0.12)_0%,rgba(201,168,76,0)_58%),radial-gradient(1400px_circle_at_84%_30%,rgba(108,63,197,0.10)_0%,rgba(108,63,197,0)_60%),linear-gradient(120deg,rgba(26,26,62,0.04)_0%,rgba(26,26,62,0)_46%,rgba(26,26,62,0.05)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(900px_circle_at_50%_62%,rgba(26,26,62,0.035)_0%,rgba(26,26,62,0)_62%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1000px_circle_at_50%_50%,rgba(197,160,89,0.04)_0%,transparent_70%)]" />
 
         <div className="section-shell relative z-10">
-          <div className="mx-auto max-w-6xl text-center">
-            <p className="text-[11px] font-semibold uppercase tracking-[0.42em] text-secondary/90">
-              THE CLINICAL TRUTH
+          <div className="mx-auto max-w-5xl text-center">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.42em] text-secondary/80">
+              CLINICAL RESULTS
             </p>
-            <h3 className="mt-6 font-serif text-5xl text-primary sm:text-6xl lg:text-7xl">Proven Efficacy</h3>
+            <h3 className="mt-4 font-serif text-3xl text-primary sm:text-4xl lg:text-5xl">Proven Efficacy</h3>
 
-            <div className="mt-16 grid gap-12 lg:grid-cols-3 lg:gap-0">
+            <div className="mt-12 grid gap-10 lg:grid-cols-3 lg:gap-8">
               {[
                 {
                   value: "98%",
-                  text: "Experienced an immediate surge in hydration and softness upon first use."
+                  text: "Experienced an immediate surge in hydration and softness."
                 },
                 {
                   value: "94%",
-                  text: "Noticed a dramatic reduction in dullness and uneven pigmentation after 14 days."
+                  text: "Noticed a reduction in dullness and uneven tone after 14 days."
                 },
                 {
                   value: "100%",
-                  text: "Agreed the formulations felt entirely weightless, breathable, and deeply natural."
+                  text: "Agreed the formulations felt weightless and deeply natural."
                 }
               ].map((stat, index) => (
-                <div key={stat.value} className="relative px-4">
-                  {index !== 0 ? (
-                    <span className="pointer-events-none absolute left-0 top-6 hidden h-[150px] w-px bg-secondary/20 lg:block" />
-                  ) : null}
-
-                  <p className="font-serif text-6xl tracking-tight text-primary sm:text-7xl lg:text-8xl">
+                <div key={stat.value} className="relative px-6">
+                  <p className="font-serif text-5xl tracking-tight text-primary sm:text-6xl">
                     {stat.value}
                   </p>
-                  <p className="mx-auto mt-8 max-w-xs text-sm leading-relaxed text-primary/55">{stat.text}</p>
-
-                  <span className="pointer-events-none absolute left-1/2 top-2 hidden -translate-x-1/2 lg:block">
-                    <span className="relative block h-10 w-10">
-                      <span className="absolute inset-0 rounded-full border border-highlight/25" />
-                      <span className="absolute left-1/2 top-1/2 h-2.5 w-2.5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-secondary shadow-[0_0_0_8px_rgba(255,255,255,0.35)]" />
-                    </span>
-                  </span>
+                  <div className="mx-auto mt-4 h-px w-8 bg-secondary/30" />
+                  <p className="mx-auto mt-5 max-w-[240px] text-[0.85rem] leading-relaxed text-primary/60">{stat.text}</p>
                 </div>
               ))}
             </div>
