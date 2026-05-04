@@ -341,112 +341,102 @@ export default function HomePage() {
         id="ingredients"
         className="relative overflow-hidden py-14 sm:py-16 lg:py-20"
       >
-        {/* Linear gradient: warm diagonal stripe */}
-        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(150deg,rgba(197,160,89,0.08)_0%,transparent_40%,rgba(209,209,209,0.06)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_circle_at_22%_18%,rgba(197,160,89,0.09)_0%,rgba(197,160,89,0)_62%),radial-gradient(1200px_circle_at_78%_24%,rgba(209,209,209,0.06)_0%,rgba(209,209,209,0)_62%),linear-gradient(120deg,rgba(26,29,54,0.03)_0%,rgba(26,29,54,0)_42%,rgba(26,29,54,0.04)_100%)]" />
-        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1100px_circle_at_20%_60%,rgba(26,29,54,0.03)_0%,rgba(26,29,54,0)_58%)]" />
+        {/* Background Gradients: Warm gold on left, Soft purple on right */}
+        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(1200px_circle_at_15%_30%,rgba(197,160,89,0.12)_0%,transparent_60%),radial-gradient(1200px_circle_at_85%_70%,rgba(108,63,197,0.08)_0%,transparent_60%)]" />
+        <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0)_0%,rgba(108,63,197,0.03)_100%)]" />
 
-        <div className="section-shell relative z-10">
-          <Reveal delay={0.2} width="100%">
-            <div className="mb-6 flex items-center justify-between">
-              <h2 className="font-serif text-2xl text-primary/80 sm:text-3xl">Ingredients</h2>
-              <span className="hidden h-px flex-1 bg-secondary/20 sm:mx-8 sm:block" />
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.4} width="100%">
-            <div className="mx-auto max-w-5xl overflow-hidden rounded-[28px] border border-secondary/30 bg-white/55 shadow-soft backdrop-blur-md">
-              <div className="p-7 sm:p-9 lg:p-10">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.36em] text-secondary/90">
-                  Micro-efficacy
-                </p>
-                <div className="mt-3 grid gap-6 lg:grid-cols-[1.1fr_1.2fr] lg:items-end">
-                  <h3 className="font-serif text-3xl leading-tight text-primary sm:text-4xl">
-                    The Anatomy of a Drop
-                  </h3>
-                  <p className="max-w-xl text-sm leading-relaxed text-primary/65">
-                    Our elixirs are concentrated at the molecular level. Every drop delivers a calibrated blend of
-                    science and nature directly to your dermal layer.
+        <div className="section-shell relative z-10 mx-auto max-w-6xl px-4">
+          <div className="grid gap-8 lg:grid-cols-[1fr_0.8fr_1fr] lg:items-center">
+            {/* Left Column: Title + First 2 Cards */}
+            <div className="flex flex-col gap-8">
+              <div className="max-w-sm">
+                <Reveal delay={0.2}>
+                  <p className="text-[9px] font-bold uppercase tracking-[0.4em] text-secondary">Micro-Efficacy</p>
+                </Reveal>
+                <Reveal delay={0.3}>
+                  <h2 className="mt-4 font-serif text-4xl leading-[1.1] text-primary lg:text-5xl">
+                    Ingredients
+                  </h2>
+                </Reveal>
+                <Reveal delay={0.4}>
+                  <p className="mt-6 text-[0.8rem] leading-relaxed text-primary/60">
+                    Our elixirs are concentrated at the molecular level. Every single drop delivers a calibrated blend of science and nature.
                   </p>
-                </div>
+                </Reveal>
+              </div>
 
-                <div className="mt-10 grid gap-6 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
-                  <div className="grid gap-4">
-                    {ingredients.slice(0, 2).map((item, index) => (
-                      <motion.article
-                        key={item.name}
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.45 }}
-                        transition={{ duration: 0.55, delay: index * 0.06, ease: "easeOut" }}
-                        className="group relative overflow-hidden rounded-2xl border border-secondary/45 bg-white/40 px-6 py-5 shadow-[0_18px_44px_-40px_rgba(26,26,62,0.55)] backdrop-blur-md transition hover:border-highlight/55 hover:bg-white/55"
-                      >
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_circle_at_10%_25%,rgba(201,168,76,0.14)_0%,rgba(201,168,76,0)_58%)] opacity-0 transition duration-500 group-hover:opacity-100" />
-                        <div className="relative flex items-start justify-between gap-6">
-                          <div>
-                            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-secondary/75">
-                              {String(index + 1).padStart(2, "0")}.
-                            </p>
-                            <p className="mt-2 font-serif text-lg text-primary">{item.name}</p>
-                            <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
+              <div className="flex flex-col gap-4">
+                {ingredients.slice(0, 2).map((item, index) => (
+                  <motion.article
+                    key={item.name}
+                    initial={{ opacity: 0, x: -15 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.5, delay: index * 0.1 }}
+                    className="group relative overflow-hidden rounded-xl border border-secondary/20 bg-white/40 p-5 shadow-[0_4px_20px_rgb(0,0,0,0.01)] backdrop-blur-md transition hover:border-secondary/40"
+                  >
+                    <div className="flex items-start justify-between gap-3">
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-bold text-secondary">{String(index + 1).padStart(2, "0")}.</span>
+                            <h4 className="font-serif text-lg text-primary">{item.name}</h4>
                           </div>
-                          <div className="relative mt-1">
-                            <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-highlight/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
-                            <IngredientIcon kind={item.icon} />
-                          </div>
+                          <IngredientIcon kind={item.icon} />
                         </div>
-                      </motion.article>
-                    ))}
-                  </div>
+                        <p className="mt-2 text-[0.75rem] leading-relaxed text-primary/55">{item.benefit}</p>
+                      </div>
+                    </div>
+                  </motion.article>
+                ))}
+              </div>
+            </div>
 
-                  <div className="relative mx-auto flex h-[240px] w-[240px] items-center justify-center sm:h-[300px] sm:w-[300px] lg:h-[360px] lg:w-[360px]">
-                    <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_50%_38%,rgba(255,255,255,0.95)_0%,rgba(255,255,255,0.72)_42%,rgba(255,255,255,0.14)_74%,rgba(255,255,255,0)_100%)] shadow-[0_40px_120px_-75px_rgba(26,26,62,0.65)]" />
-                    <div className="pointer-events-none absolute inset-4 rounded-full border border-secondary/25 bg-[radial-gradient(circle_at_50%_50%,rgba(108,63,197,0.10)_0%,rgba(108,63,197,0)_62%)]" />
-                    <div className="pointer-events-none absolute inset-10 rounded-full border border-highlight/25 bg-[radial-gradient(circle_at_50%_50%,rgba(201,168,76,0.10)_0%,rgba(201,168,76,0)_65%)]" />
-                    <div className="relative flex h-24 w-24 items-center justify-center rounded-full border border-secondary/20 bg-white/70 shadow-soft backdrop-blur-md sm:h-28 sm:w-28">
-                      <IngredientIcon kind="drop" />
+            {/* Center Column: Circle Graphic */}
+            <div className="relative flex items-center justify-center">
+              <div className="relative flex h-[260px] w-[260px] items-center justify-center lg:h-[360px] lg:w-[360px]">
+                {/* Large Outer Circle */}
+                <div className="absolute inset-0 rounded-full bg-white/50 shadow-[0_30px_80px_rgba(0,0,0,0.03)] backdrop-blur-md" />
+                <div className="absolute inset-6 rounded-full border border-secondary/15" />
+                <div className="absolute inset-12 rounded-full border border-secondary/5" />
+                
+                {/* Center Drop Circle */}
+                <div className="relative z-20 flex h-20 w-20 items-center justify-center rounded-full bg-white shadow-[0_15px_40px_rgba(0,0,0,0.08)] sm:h-28 sm:w-28">
+                  <div className="pointer-events-none absolute inset-0 rounded-full bg-[radial-gradient(circle_at_35%_35%,rgba(255,255,255,1)_0%,rgba(248,248,248,0.5)_100%)]" />
+                  <div className="relative z-30">
+                    <IngredientIcon kind="drop" />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Column: Last 2 Cards */}
+            <div className="flex flex-col gap-4 lg:mt-24">
+              {ingredients.slice(2).map((item, index) => (
+                <motion.article
+                  key={item.name}
+                  initial={{ opacity: 0, x: 15 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.5, delay: (index + 2) * 0.1 }}
+                  className="group relative overflow-hidden rounded-xl border border-secondary/20 bg-white/40 p-5 shadow-[0_4px_20px_rgb(0,0,0,0.01)] backdrop-blur-md transition hover:border-secondary/40"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex-1">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <span className="text-[10px] font-bold text-secondary">{String(index + 3).padStart(2, "0")}.</span>
+                          <h4 className="font-serif text-lg text-primary">{item.name}</h4>
+                        </div>
+                        <IngredientIcon kind={item.icon} />
+                      </div>
+                      <p className="mt-2 text-[0.75rem] leading-relaxed text-primary/55">{item.benefit}</p>
                     </div>
                   </div>
-
-                  <div className="grid gap-4">
-                    {ingredients.slice(2).map((item, index) => (
-                      <motion.article
-                        key={item.name}
-                        initial={{ opacity: 0, y: 16 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, amount: 0.45 }}
-                        transition={{ duration: 0.55, delay: (index + 2) * 0.06, ease: "easeOut" }}
-                        className="group relative overflow-hidden rounded-2xl border border-secondary/45 bg-white/40 px-6 py-5 shadow-[0_18px_44px_-40px_rgba(26,26,62,0.55)] backdrop-blur-md transition hover:border-highlight/55 hover:bg-white/55"
-                      >
-                        <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(700px_circle_at_92%_20%,rgba(108,63,197,0.12)_0%,rgba(108,63,197,0)_56%)] opacity-0 transition duration-500 group-hover:opacity-100" />
-                        <div className="relative flex items-start justify-between gap-6">
-                          <div>
-                            <p className="text-[11px] font-semibold uppercase tracking-[0.32em] text-secondary/75">
-                              {String(index + 3).padStart(2, "0")}.
-                            </p>
-                            <p className="mt-2 font-serif text-lg text-primary">{item.name}</p>
-                            <p className="mt-1 text-sm leading-relaxed text-primary/65">{item.benefit}</p>
-                          </div>
-                          <div className="relative mt-1">
-                            <div className="pointer-events-none absolute -inset-3 rounded-2xl bg-highlight/10 opacity-0 blur-xl transition duration-500 group-hover:opacity-100" />
-                            <IngredientIcon kind={item.icon} />
-                          </div>
-                        </div>
-                      </motion.article>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="flex items-center justify-center px-7 pb-7 sm:px-9 sm:pb-9">
-                <div className="flex w-full max-w-md items-center gap-4 text-secondary/80">
-                  <span className="h-px flex-1 bg-secondary/25" />
-                  <span className="h-2 w-2 rotate-45 border border-secondary/40" />
-                  <span className="h-px flex-1 bg-secondary/25" />
-                </div>
-              </div>
+                </motion.article>
+              ))}
             </div>
-          </Reveal>
+          </div>
         </div>
       </section>
 
